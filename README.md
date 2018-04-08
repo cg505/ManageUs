@@ -23,4 +23,5 @@
 
 ### Technologies Used:
 Front End: React JS
+
 Back End: Javascript and MySQL
