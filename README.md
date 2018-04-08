@@ -17,9 +17,9 @@
 - Account Page (Upload Picture, Change Name, Leave Household)
 
 ### Members:
-- Devin Sova
-- Christopher Cooper
-- Yufei Xu
+- Devin Sova - dsova@purdue.edu
+- Christopher Cooper - coope157@purdue.edu
+- Yufei Xu - xu881@purdue.edu
 
 ### Technologies Used:
 - Front End: React JS
