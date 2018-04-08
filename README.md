@@ -1,6 +1,7 @@
 # ManageUs
 
 ## It's a helpful web app for people living together.
+## People in a household are able to leaves notes for each other, collaborate on a grocery list, assign chores, create polls and more.
 
 ### Features Include:
 - Collaborated Grocery List
