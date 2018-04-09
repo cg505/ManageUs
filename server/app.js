@@ -15,8 +15,4 @@ app.use(Session({
 
 require('./routes')(app);
 
-app.get('*', (req, res) => res.status(200).send({
-  message: 'hi there'
-}));
-
 module.exports = app;
