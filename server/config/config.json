@@ -1,0 +1,11 @@
+{
+  "development": {
+    "use_env_variable": "DEV_MYSQL_STRING"
+  },
+  "test": {
+    "use_env_variable": "TEST_MYSQL_STRING"
+  },
+  "production": {
+    "use_env_variable": "PROD_MYSQL_STRING"
+  }
+}

@@ -7,10 +7,12 @@
     "bootstrap": "3",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
+    "mysql2": "^1.5.3",
     "react": "^16.3.1",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "sequelize": "^4.37.6"
   },
   "scripts": {
     "start": "concurrently \"yarn run server\" \"yarn run client\"",
@@ -22,7 +24,8 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.3",
+    "sequelize-cli": "^4.0.0"
   },
   "proxy": "http://localhost:4000"
 }

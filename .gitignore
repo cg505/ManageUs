@@ -9,6 +9,9 @@
 # production
 /build
 
+# config (copy .env.sample to .env and change as needed)
+.env
+
 # misc
 .DS_Store
 .env.local
