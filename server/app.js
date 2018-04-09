@@ -8,6 +8,8 @@ app.use(Morgan('dev'));
 
 app.use(BodyParser.json());
 
+require('./routes')(app);
+
 app.get('*', (req, res) => res.status(200).send({
   message: 'hi there'
 }));
