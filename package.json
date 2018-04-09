@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcrypt": "^2.0.0",
     "body-parser": "^1.18.2",
     "bootstrap": "3",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "morgan": "^1.9.0",
     "mysql2": "^1.5.3",
     "react": "^16.3.1",

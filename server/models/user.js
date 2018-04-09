@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     name: DataTypes.STRING,
+    passwordHash: DataTypes.CHAR(60),
     householdId: DataTypes.INTEGER
   }, {});
 

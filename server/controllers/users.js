@@ -1,9 +1,10 @@
+const bcrypt = require('bcrypt');
 const Models = require('../models');
 
 module.exports = {
   async current(req, res) {
     try {
-      const user = await Models.User.findById(1);
+      const user = await Models.User.findById(req.session.userId);
 
       if(user) {
         return res.status(200).send(user);
@@ -30,10 +31,24 @@ module.exports = {
   },
 
   async create(req, res) {
+    if(!req.body.password) {
+      return res.status(400).send({
+        error: "Please include password"
+      })
+    }
+
+    let passwordHash;
+    try {
+      passwordHash = await bcrypt.hash(req.body.password, 10);
+    } catch(error) {
+      console.log(error);
+      return res.status(500).send(error);
+    }
     try {
       const user = await Models.User.create({
         email: req.body.email,
-        name: req.body.name
+        name: req.body.name,
+        passwordHash
       });
       res.status(201).send(user);
     } catch (error) {
