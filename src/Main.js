@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {
     Route,
     NavLink,
-    HashRouter
+    BrowserRouter
 } from "react-router-dom";
 import LoginPanel from "./components/LoginPanel"
 import RegisterPanel from "./components/RegisterPanel"
@@ -12,7 +12,7 @@ import Intro from "./Bottom"
 class Main extends Component {
     render() {
         return (
-        <HashRouter>
+        <BrowserRouter>
             <div>
                 <h1>Manage Us</h1>
                 <ul className="header">
@@ -24,11 +24,11 @@ class Main extends Component {
                     <Route path="/Register" component={RegisterPanel}/>
                     <Route path="/App" component={App}/>
                 </div>
-                <div className="contact">
+                <div className="contract" id="bottom">
                     <Route path="/" component={Intro}/>
                 </div>
             </div>
-        </HashRouter>
+        </BrowserRouter>
         )
     }
 }
