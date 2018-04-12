@@ -12,10 +12,12 @@ class Login extends Component {
                 <input type="text" placeholder="Username" required="" autoFocus="" />
                 <input type="password" placeholder="Password" required=""/>
                 <br/>
-                <NavLink to="/APP"><input type="submit" /></NavLink>
+                <NavLink to="/APP"><input type="submit"/></NavLink>
             </div>
         )
     }
+
+
     handleLoginClick() {
         console.log("Hello World!")
     }
