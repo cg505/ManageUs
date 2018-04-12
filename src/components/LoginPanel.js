@@ -7,7 +7,7 @@ class Login extends Component {
     render() {
         //Bootstrap Login Window
         return (
-            <div className="Login">
+            <div className="Authentication">
                 <h1>Login</h1>
                 <input type="text" placeholder="Username" required="" autoFocus="" />
                 <input type="password" placeholder="Password" required=""/>
