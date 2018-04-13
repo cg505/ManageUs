@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {
     Route,
     NavLink,
-    BrowserRouter
+    BrowserRouter,
+    Redirect
 } from "react-router-dom";
 import authFetch from './utils/authFetch';
 import AuthRoute from './AuthRoute';
@@ -85,14 +86,17 @@ class Main extends Component {
                     <li><NavLink to="/Register">Register</NavLink></li>
                 </ul>
                 <div className="content">
-                    <Route path="/Login" render={(props) => (
+                    <Route exact path="/Login" render={(props) => (
                         <LoginPanel
                             getUserInfo={this.getUserInfo}
                             loggedIn={this.state.knowLoggedIn && this.state.loggedIn}
                             {...props} />
                     )} />
-                    <Route path="/Register" component={RegisterPanel}/>
-                    <AuthRoute path="/App" component={App} {...this.state} props={{user: this.state.user}} />
+                    <Route exact path="/Register" component={RegisterPanel}/>
+                    <AuthRoute exact path="/App" component={App} {...this.state} props={{user: this.state.user}} />
+                    <Route exact path="/" render={() => (
+                        <Redirect to="/App" />
+                    )} />
                 </div>
                 <div className="contract" id="bottom">
                     <Route path="/" component={Intro}/>

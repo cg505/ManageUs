@@ -21,9 +21,8 @@ const AuthRoute = (props) => {
         }
     };
 
-
     return (
-        <Route path={props.path} render={child} />
+        <Route exact={!!props.exact} path={props.path} render={child} />
     );
 };
 
