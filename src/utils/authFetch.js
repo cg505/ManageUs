@@ -1,4 +1,4 @@
-export default (url, body, options) => {
+export default async function authFetch(url, body, options) {
     const fetchOptions = {
         credentials: 'same-origin'
     };
@@ -15,7 +15,10 @@ export default (url, body, options) => {
 
     Object.assign(fetchOptions, options)
 
-    console.log(fetchOptions);
+    const resp = await fetch(url, fetchOptions);
 
-    return fetch(url, fetchOptions);
+    if(resp.status === 401 && this && this.props && this.props.logout) {
+        this.props.logout();
+    }
+    return resp;
 };

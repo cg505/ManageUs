@@ -2,30 +2,30 @@ import React, { Component } from 'react';
 import './Components.css'
 import { Redirect } from 'react-router-dom'
 import authFetch from '../utils/authFetch';
-class Login extends Component {
+
+class LoginPanel extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             email: '',
             password: '',
-            issues: null,
-            redirectTo: null
+            issues: null
         };
 
         this.submit = this.submit.bind(this);
     }
 
-    async submit() {
-        const resp = await authFetch('/api/sessions/login', {
+    async submit(e) {
+        e.preventDefault();
+
+        const resp = await authFetch.bind(this)('/api/sessions/login', {
             email: this.state.email,
             password: this.state.password
         });
 
         if(resp.ok) {
-            this.setState({
-                redirectTo: this.props.from || '/app'
-            });
+            this.props.getUserInfo();
         } else {
             this.setState({
                 issues: `login failed with status ${resp.status}`
@@ -34,13 +34,17 @@ class Login extends Component {
     }
 
     render() {
+        if(this.props.loggedIn) {
+            const redirectTo = (this.props.location &&
+                                this.props.location.state &&
+                                this.props.location.state.from) || '/';
+            return (
+                <Redirect push to={redirectTo} />
+            );
+        }
         //Bootstrap Login Window
         return (
             <div className="Authentication">
-                {
-                    this.state.redirectTo &&
-                    <Redirect to={this.state.redirectTo} />
-                }
                 <h1>Login</h1>
                 {
                     this.state.issues &&
@@ -55,8 +59,8 @@ class Login extends Component {
                     <input type="submit" />
                 </form>
             </div>
-        )
+        );
     }
 }
 
-export default Login;
+export default LoginPanel;

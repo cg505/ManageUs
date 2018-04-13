@@ -3,6 +3,9 @@ const Models = require('../models');
 
 module.exports = {
   async current(req, res) {
+    if(!req.session.userId) {
+      return res.status(401).send('please log in');
+    }
     try {
       const user = await Models.User.findById(req.session.userId);
 
