@@ -10,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     Household.hasMany(models.User, {
       foreignKey: 'householdId'
     });
+
+    Household.hasMany(models.JoinKey, {
+      foreignKey: 'householdId'
+    });
   };
 
   return Household;
