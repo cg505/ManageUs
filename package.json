@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "bcrypt": "^2.0.0",
-    "bootstrap": "3",
+    "bootstrap": "^3.3.7",
     "connect-session-sequelize": "^5.2.1",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
@@ -24,7 +24,8 @@
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "migrate": "sequelize db:migrate"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",

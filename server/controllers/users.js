@@ -3,8 +3,13 @@ const Models = require('../models');
 
 module.exports = {
   async current(req, res) {
+    if(!req.session.userId) {
+      return res.status(401).send('please log in');
+    }
     try {
-      const user = await Models.User.findById(req.session.userId);
+      const user = await Models.User.findById(req.session.userId, {
+        attributes: ['name', 'email']
+      });
 
       if(user) {
         return res.status(200).send(user);
@@ -50,7 +55,10 @@ module.exports = {
         name: req.body.name,
         passwordHash
       });
-      res.status(201).send(user);
+      res.status(201).send({
+        name: user.name,
+        email: user.email
+      });
     } catch (error) {
       res.status(400).send(error);
     }
