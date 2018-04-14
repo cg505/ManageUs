@@ -1,5 +1,5 @@
 /* Login and Register Components
-----------------------------*/
+---------------------------------------*/
 
 .Authentication {
     padding: 30px;
@@ -17,6 +17,7 @@
     text-align: center;
     font-size: 2.5em;
     padding-bottom: 30px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .Authentication input[type=text], input[type=password] {
