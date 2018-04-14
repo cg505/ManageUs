@@ -1,46 +1,15 @@
-/* Bottom Footer
+/* Top Header
 ---------------------------------------*/
+.header {
 
-
-.Footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    padding: 20px;
-    color: white;
-    background-color: #4d90fe;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#be00ab), to(#ea5ad9));
 }
 
-.GithubLogo {
-    color: white;
-}
-
-.GithubLogo:hover {
-    color:#d8d8d8;
-}
-
-/* Main
----------------------------------------*/
-
-body {
-    background-color: #bce8f1;
-    margin: 0;
-}
-
-h1 {
-    font-family: sans-serif;
-    text-align: center;
-}
 ul.header li {
     display: inline;
     list-style-type: none;
     margin: 0;
 }
+
 ul.header {
     background-color: #111;
     padding: 0;
@@ -52,9 +21,51 @@ ul.header li a {
     padding: 20px;
     display: inline-block;
 }
+
+
+/* Bottom Footer
+---------------------------------------*/
+
+.Footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  padding: 20px;
+  color: white;
+  background-color: #4d90fe;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#be00ab), to(#ea5ad9));
+}
+
+.GithubLogo {
+  color: white;
+}
+
+.GithubLogo:hover {
+  color:#d8d8d8;
+}
+
+/* Main
+---------------------------------------*/
+
+body {
+  background-color: #bce8f1;
+  margin: 0;
+  overflow: scroll;
+}
+
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+}
+
 .content {
-    background-color: #FFF;
-    padding: 20px;
+  background-color: #FFF;
+  padding: 20px;
+  overflow: scroll;
 }
 .content h2 {
     padding: 0;

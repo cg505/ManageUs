@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Main.css'
+import './index.css'
 
 class Bottom extends Component {
     render() {

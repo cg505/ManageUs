@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {
     Route,
-    NavLink,
     BrowserRouter,
     Redirect
 } from "react-router-dom";
@@ -11,7 +10,8 @@ import LoginPanel from "./components/LoginPanel";
 import RegisterPanel from "./components/RegisterPanel";
 import MainBase from "./components/base";
 import App from "./App";
-import Intro from "./Bottom";
+import Bottom from "./Bottom";
+import Top from "./Top";
 
 class Main extends Component {
     constructor(props) {
@@ -73,39 +73,31 @@ class Main extends Component {
 
     render() {
         return (
-        <BrowserRouter>
-            <div>
-                <h1>Manage Us</h1>
-                <ul className="header">
-                    {
-                        this.state.knowLoggedIn && this.state.loggedIn ? (
-                            <li><a href="/" onClick={this.logout}>Logout</a></li>
-                        ) : (
-                            <li><NavLink to="/Login">Login</NavLink></li>
-                        )
-                    }
-                    <li><NavLink to="/Register">Register</NavLink></li>
-                    <li><NavLink to="/Main">Main</NavLink></li>
-                </ul>
-                <div className="content" data-spy="scroll">
-                    <Route exact path="/Login" render={(props) => (
-                        <LoginPanel
-                            getUserInfo={this.getUserInfo}
-                            loggedIn={this.state.knowLoggedIn && this.state.loggedIn}
-                            {...props} />
-                    )} />
-                    <Route exact path="/Register" component={RegisterPanel}/>
-                    <Route exact path="/Main" component={MainBase}/>
-                    <AuthRoute exact path="/App" component={App} {...this.state} props={{user: this.state.user}} />
-                    <Route exact path="/" render={() => (
-                        <Redirect to="/App" />
-                    )} />
+            <BrowserRouter>
+                <div>
+                    <h1>Manage Us</h1>
+                    <div className="header">
+                        <Top knowLoggedIn={this.state.knowLoggedIn} loggedIn={this.state.loggedIn} logout={this.logout} />
+                    </div>
+                    <div className="content" data-spy="scroll">
+                        <Route exact path="/Login" render={(props) => (
+                            <LoginPanel
+                                getUserInfo={this.getUserInfo}
+                                            loggedIn={this.state.knowLoggedIn && this.state.loggedIn}
+                                            {...props} />
+                        )} />
+                        <Route exact path="/Register" component={RegisterPanel}/>
+                        <Route exact path="/Main" component={MainBase}/>
+                        <AuthRoute exact path="/App" component={App} {...this.state} props={{user: this.state.user}} />
+                        <Route exact path="/" render={() => (
+                            <Redirect to="/App" />
+                        )} />
+                    </div>
+                    <div className="contact">
+                        <Route path="/" component={Bottom}/>
+                    </div>
                 </div>
-                <div className="contract" id="bottom">
-                    <Route path="/" component={Intro}/>
-                </div>
-            </div>
-        </BrowserRouter>
+            </BrowserRouter>
         )
     }
 }
