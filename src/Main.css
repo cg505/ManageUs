@@ -5,6 +5,7 @@
 	font-family: 'Open Sans', sans-serif;
 	padding: 20px;
 	color: white;
+	position: center;
 	background-color: #4d90fe;
 	background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#be00ab), to(#ea5ad9));
 }

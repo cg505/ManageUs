@@ -9,6 +9,7 @@ import authFetch from './utils/authFetch';
 import AuthRoute from './AuthRoute';
 import LoginPanel from "./components/LoginPanel";
 import RegisterPanel from "./components/RegisterPanel";
+import MainBase from "./components/base";
 import App from "./App";
 import Intro from "./Bottom";
 
@@ -84,6 +85,7 @@ class Main extends Component {
                         )
                     }
                     <li><NavLink to="/Register">Register</NavLink></li>
+                    <li><NavLink to="/Main">Main</NavLink></li>
                 </ul>
                 <div className="content">
                     <Route exact path="/Login" render={(props) => (
@@ -93,6 +95,7 @@ class Main extends Component {
                             {...props} />
                     )} />
                     <Route exact path="/Register" component={RegisterPanel}/>
+                    <Route exact path="/Main" component={MainBase}/>
                     <AuthRoute exact path="/App" component={App} {...this.state} props={{user: this.state.user}} />
                     <Route exact path="/" render={() => (
                         <Redirect to="/App" />
