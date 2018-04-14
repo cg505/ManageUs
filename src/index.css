@@ -5,21 +5,21 @@
 }
 
 ul.header li {
-  display: inline;
-  list-style-type: none;
-  margin: 0;
+    display: inline;
+    list-style-type: none;
+    margin: 0;
 }
 
 ul.header {
-  background-color: #111;
-  padding: 0;
+    background-color: #111;
+    padding: 0;
 }
 ul.header li a {
-  color: #FFF;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 20px;
-  display: inline-block;
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
 }
 
 
@@ -68,9 +68,9 @@ h1 {
   overflow: scroll;
 }
 .content h2 {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 .content li {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }

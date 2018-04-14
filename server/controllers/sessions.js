@@ -4,7 +4,8 @@ const Models = require('../models');
 module.exports = {
   async login(req, res) {
     const user = await Models.User.findOne({
-      email: req.body.email
+      where: {email: req.body.email},
+      attributes: ['passwordHash', 'id']
     });
 
     if(!user) {

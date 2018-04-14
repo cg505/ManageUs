@@ -14,6 +14,12 @@ module.exports = (app) => {
   app.post('/sessions/login', Controllers.sessions.login);
   app.post('/sessions/logout', Controllers.sessions.logout);
 
+  app.get('/households', Controllers.households.get);
+  app.get('/households/keys', Controllers.households.keys);
+  app.post('/households', Controllers.households.create);
+  app.post('/households/generateKey', Controllers.households.generateKey);
+  app.post('/households/join', Controllers.households.join);
+
   // fallthrough
   app.get('/*', (req, res) =>
     res.status(404).send({

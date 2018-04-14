@@ -7,7 +7,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
 
   Household.associate = (models) => {
-    Household.hasMany(models.User);
+    Household.hasMany(models.User, {
+      foreignKey: 'householdId'
+    });
+
+    Household.hasMany(models.JoinKey, {
+      foreignKey: 'householdId'
+    });
   };
 
   return Household;
