@@ -4,10 +4,10 @@
 Brief Description: People in a household are able to leaves notes for each other, collaborate on a grocery list, assign chores, create polls and more.
 
 ### Features Include:
-- Collaborated Grocery List
-- Chores List
+- Collaborated Grocery Grocery
+- Chores Grocery
 - Timed Sticky Notes
-- Rules List
+- Rules Grocery
 - Polls
 
 ### Pages:
