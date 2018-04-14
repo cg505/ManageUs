@@ -11,7 +11,6 @@ class Main extends Component {
         return (
         <BrowserRouter>
             <div>
-                <h1>Manage Us</h1>
                 <div className="header">
                     <Route path="/" component={Top}/>
                 </div>

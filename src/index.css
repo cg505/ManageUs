@@ -1,25 +1,45 @@
+/* Everything CSS 
+---------------------------------------*/
+body {
+    background-color: #bce8f1;
+    margin: 0;
+    overflow: scroll;
+}
+
+h1 {
+    font-family: sans-serif;
+    text-align: center;
+}
+
 /* Top Header
 ---------------------------------------*/
 .header {
-
+    background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#cecece), to(#ffffff));
 }
 
-ul.header li {
-  display: inline;
-  list-style-type: none;
-  margin: 0;
+.Logo {
+    /*border:1px solid #ddd;
+    //border-radius: 4px;
+    background-color: #FFF;
+    */
+    display: block;
+    height: auto;
+    max-width: 45%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-ul.header {
-  background-color: #111;
-  padding: 0;
+.header li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
 }
-ul.header li a {
-  color: #FFF;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 20px;
-  display: inline-block;
+
+.header li a {
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
 }
 
 
@@ -27,50 +47,38 @@ ul.header li a {
 ---------------------------------------*/
 
 .Footer {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  padding: 20px;
-  color: white;
-  background-color: #4d90fe;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#be00ab), to(#ea5ad9));
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px;
+    color: white;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#be00ab), to(#ea5ad9));
 }
 
 .GithubLogo {
-  color: white;
+    color: white;
 }
 
 .GithubLogo:hover {
-  color:#d8d8d8;
+    color:#d8d8d8;
 }
 
-/* Main
+/* Main Content
 ---------------------------------------*/
 
-body {
-  background-color: #bce8f1;
-  margin: 0;
-  overflow: scroll;
-}
-
-h1 {
-  font-family: sans-serif;
-  text-align: center;
-}
-
 .content {
-  background-color: #FFF;
-  padding: 20px;
-  overflow: scroll;
+    background-color: #FFF;
+    padding: 20px;
+    overflow: scroll;
 }
 .content h2 {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 .content li {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
