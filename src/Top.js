@@ -8,6 +8,7 @@ class Top extends Component {
         <ul className="header">
         	<li><NavLink to="/Login">Login</NavLink></li>
             <li><NavLink to="/Register">Register</NavLink></li>
+            <li><NavLink to="/App">App</NavLink></li>
         </ul>
         );
     }
