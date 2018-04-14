@@ -1,14 +1,38 @@
+/* Bottom Footer
+---------------------------------------*/
+
+
+.Footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  padding: 20px;
+  color: white;
+  background-color: #4d90fe;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#be00ab), to(#ea5ad9));
+}
+
+.GithubLogo {
+  color: white;
+}
+
+.GithubLogo:hover {
+  color:#d8d8d8;
+}
+
+/* Main
+---------------------------------------*/
+
 body {
   background-color: #bce8f1;
-  padding: 20px;
   margin: 0;
 }
-#bottom {
-    position: absolute;
-    bottom: 30px;
-    width: 100%;
-}
-h1{
+
+h1 {
   font-family: sans-serif;
   text-align: center;
 }
