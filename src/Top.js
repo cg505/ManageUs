@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-    Route,
-    NavLink,
-    BrowserRouter
-} from "react-router-dom";
-import LoginPanel from "./components/LoginPanel"
-import RegisterPanel from "./components/RegisterPanel"
-import App from "./App"
-import Bottom from "./Bottom"
+import { NavLink } from "react-router-dom";
 import './index.css'
 
 class Top extends Component {
