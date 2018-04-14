@@ -8,7 +8,7 @@ module.exports = {
         }
         try {
             const user = await Models.User.findById(req.session.userId, {
-                attributes: ['name', 'email']
+                attributes: ['firstName', 'lastName', 'email']
             });
 
             if(user) {
@@ -52,11 +52,13 @@ module.exports = {
         try {
             const user = await Models.User.create({
                 email: req.body.email,
-                name: req.body.name,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
                 passwordHash
             });
             res.status(201).send({
-                name: user.name,
+                firstName: user.firstName,
+                lastName: user.lastName,
                 email: user.email
             });
         } catch (error) {

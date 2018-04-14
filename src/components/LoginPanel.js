@@ -53,7 +53,7 @@ class LoginPanel extends Component {
                     </p>
                 }
                 <form onSubmit={this.submit}>
-                    <input type="text" placeholder="Username" autoFocus="" value={this.state.email} onChange={e => this.setState({email: e.target.value})} />
+                    <input type="text" placeholder="Email" autoFocus="" value={this.state.email} onChange={e => this.setState({email: e.target.value})} />
                     <input type="password" placeholder="Password" required="" value={this.state.password} onChange={e => this.setState({password: e.target.value}) } />
                     <br/>
                     <input type="submit" />

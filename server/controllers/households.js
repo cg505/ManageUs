@@ -115,7 +115,7 @@ module.exports = {
             include: [{
                 model: Models.Household,
                 include: [{
-                    attributes: ['name', 'email'],
+                    attributes: ['firstName', 'lastName', 'email'],
                     model: Models.User
                 }]
             }]
