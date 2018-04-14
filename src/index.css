@@ -1,9 +1,33 @@
+/* Top Header
+---------------------------------------*/
+.header {
+
+}
+
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+
+ul.header {
+  background-color: #111;
+  padding: 0;
+}
+ul.header li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+
+
 /* Bottom Footer
 ---------------------------------------*/
 
-
 .Footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
@@ -30,31 +54,18 @@
 body {
   background-color: #bce8f1;
   margin: 0;
+  overflow: scroll;
 }
 
 h1 {
   font-family: sans-serif;
   text-align: center;
 }
-ul.header li {
-  display: inline;
-  list-style-type: none;
-  margin: 0;
-}
-ul.header {
-  background-color: #111;
-  padding: 0;
-}
-ul.header li a {
-  color: #FFF;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 20px;
-  display: inline-block;
-}
+
 .content {
   background-color: #FFF;
   padding: 20px;
+  overflow: scroll;
 }
 .content h2 {
   padding: 0;

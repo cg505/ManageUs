@@ -7,7 +7,8 @@ import {
 import LoginPanel from "./components/LoginPanel"
 import RegisterPanel from "./components/RegisterPanel"
 import App from "./App"
-import Intro from "./Bottom"
+import Bottom from "./Bottom"
+import Top from "./Top"
 
 class Main extends Component {
     render() {
@@ -15,17 +16,16 @@ class Main extends Component {
         <BrowserRouter>
             <div>
                 <h1>Manage Us</h1>
-                <ul className="header">
-                    <li><NavLink to="/Login">Login</NavLink></li>
-                    <li><NavLink to="/Register">Register</NavLink></li>
-                </ul>
+                <div className="header">
+                    <Route path="/" component={Top}/>
+                </div>
                 <div className="content">
                     <Route path="/Login" component={LoginPanel}/>
                     <Route path="/Register" component={RegisterPanel}/>
                     <Route path="/App" component={App}/>
                 </div>
-                <div className="contract" id="bottom">
-                    <Route path="/" component={Intro}/>
+                <div className="contact">
+                    <Route path="/" component={Bottom}/>
                 </div>
             </div>
         </BrowserRouter>
