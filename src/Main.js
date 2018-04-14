@@ -87,7 +87,7 @@ class Main extends Component {
                     <li><NavLink to="/Register">Register</NavLink></li>
                     <li><NavLink to="/Main">Main</NavLink></li>
                 </ul>
-                <div className="content">
+                <div className="content" data-spy="scroll">
                     <Route exact path="/Login" render={(props) => (
                         <LoginPanel
                             getUserInfo={this.getUserInfo}
