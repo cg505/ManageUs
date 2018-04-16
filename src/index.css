@@ -1,7 +1,7 @@
 /* Everything CSS 
 ---------------------------------------*/
 body {
-    background-color: #bce8f1;
+    background-color: #ffd848;
     margin: 0;
     overflow: scroll;
 }
@@ -14,19 +14,16 @@ h1 {
 /* Top Header
 ---------------------------------------*/
 .header {
-    background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#cecece), to(#ffffff));
+    background-color: #551a7d;
 }
 
 .Logo {
-    /*border:1px solid #ddd;
-    //border-radius: 4px;
-    background-color: #FFF;
-    */
     display: block;
     height: auto;
     max-width: 45%;
     margin-left: auto;
     margin-right: auto;
+    padding: 30px;
 }
 
 .header li {
@@ -38,7 +35,7 @@ h1 {
 .header li a {
     font-weight: bold;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
     display: inline-block;
 }
 
@@ -56,7 +53,7 @@ h1 {
     font-family: 'Open Sans', sans-serif;
     padding: 20px;
     color: white;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#be00ab), to(#ea5ad9));
+    background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#f5477b), to(#c23c63));
 }
 
 .GithubLogo {
