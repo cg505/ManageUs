@@ -73,7 +73,7 @@ class Register extends Component {
                 }
                 <form onSubmit={this.submit}>
                     <input type="text" placeholder="Name" onChange={updateField('name')} />
-                    <input type="text" placeholder="Email" onChange={updateField('email')} />
+                    <input type="email" placeholder="Email" onChange={updateField('email')} />
                     <input type="password" placeholder="Password" onChange={updateField('password')} />
                     <input type="password" placeholder="Confirm Password" onChange={updateField('passwordConf')} />
                     <br/>
