@@ -75,7 +75,6 @@ class Main extends Component {
         return (
             <BrowserRouter>
                 <div>
-                    <h1>Manage Us</h1>
                     <div className="header">
                         <Top knowLoggedIn={this.state.knowLoggedIn} loggedIn={this.state.loggedIn} logout={this.logout} />
                     </div>

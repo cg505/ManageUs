@@ -20,7 +20,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.Authentication input[type=text], input[type=password] {
+.Authentication input[type=text], input[type=email], input[type=password] {
     height: 44px;
     font-size: 16px;
     width: 100%;
@@ -35,7 +35,7 @@
     -moz-box-sizing: border-box;
 }
 
-.Authentication input[type=text]:hover, input[type=password]:hover {
+.Authentication input[type=text]:hover, input[type=email]:hover, input[type=password]:hover {
     border: 1px solid #b9b9b9;
     border-top: 1px solid #a0a0a0;
     -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);

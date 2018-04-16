@@ -7,7 +7,6 @@ class Top extends Component {
         return (
             <ul className="header">
             <img className="Logo" src="/img/logo.png" alt="logo"/>
-            <br />
                 {
                     this.props.knowLoggedIn && this.props.loggedIn ? (
                         <li><a href="/" onClick={this.props.logout}>Logout</a></li>
