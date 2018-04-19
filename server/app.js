@@ -6,22 +6,22 @@ const SequelizeStore = require('connect-session-sequelize')(Session.Store);
 const app = Express();
 
 if(process.env.NODE_ENV == 'production') {
-  const fs = require('fs');
-  const apiLog = fs.createWriteStream('api.log', {
-    flags: 'a'
-  });
+    const fs = require('fs');
+    const apiLog = fs.createWriteStream('api.log', {
+        flags: 'a'
+    });
 
-  app.use(Morgan('combined', {
-    stream: apiLog
-  }));
+    app.use(Morgan('combined', {
+        stream: apiLog
+    }));
 } else {
-  app.use(Morgan('dev'));
+    app.use(Morgan('dev'));
 }
 
 app.use(Express.json());
 
 const store = new SequelizeStore({
-  db: require('./models').sequelize
+    db: require('./models').sequelize
 });
 // create session table if it does not exist
 // we don't really care if this loses data since
@@ -29,10 +29,10 @@ const store = new SequelizeStore({
 store.sync();
 
 app.use(Session({
-  secret: 'turkstra is bae',
-  resave: false,
-  saveUninitialized: false,
-  store
+    secret: 'turkstra is bae',
+    resave: false,
+    saveUninitialized: false,
+    store
 }))
 
 require('./routes')(app);

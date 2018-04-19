@@ -8,7 +8,8 @@ class Register extends Component {
         super(props)
 
         this.state = {
-            name: '',
+            firstName: '',
+            lastName: '',
             email: '',
             password: '',
             passwordConf: '',
@@ -29,7 +30,8 @@ class Register extends Component {
         }
 
         const resp = await authFetch('/api/users', {
-            name: this.state.name,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
             email: this.state.email,
             password: this.state.password
         });
@@ -72,7 +74,8 @@ class Register extends Component {
                     </p>
                 }
                 <form onSubmit={this.submit}>
-                    <input type="text" placeholder="Name" onChange={updateField('name')} />
+                    <input type="text" placeholder="First Name" onChange={updateField('firstName')} />
+                    <input type="text" placeholder="Last Name" onChange={updateField('lastName')} />
                     <input type="email" placeholder="Email" onChange={updateField('email')} />
                     <input type="password" placeholder="Password" onChange={updateField('password')} />
                     <input type="password" placeholder="Confirm Password" onChange={updateField('passwordConf')} />

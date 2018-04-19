@@ -1,20 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
-  const Household = sequelize.define('Household', {
-    name: {
-      allowNull: false,
-      type: DataTypes.STRING
-    }
-  }, {});
+    const Household = sequelize.define('Household', {
+        name: {
+            allowNull: false,
+            type: DataTypes.STRING
+        }
+    }, {});
 
-  Household.associate = (models) => {
-    Household.hasMany(models.User, {
-      foreignKey: 'householdId'
-    });
+    Household.associate = (models) => {
+        Household.hasMany(models.User, {
+            foreignKey: 'householdId'
+        });
 
-    Household.hasMany(models.JoinKey, {
-      foreignKey: 'householdId'
-    });
-  };
+        Household.hasMany(models.JoinKey, {
+            foreignKey: 'householdId'
+        });
+    };
 
-  return Household;
+    return Household;
 };
