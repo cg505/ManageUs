@@ -8,7 +8,7 @@ module.exports = (app) => {
     );
 
     app.get('/users', Controllers.users.current);
-    app.get('/users/:id', Controllers.users.get);
+    //app.get('/users/:id', Controllers.users.get);
     app.post('/users', Controllers.users.create);
 
     app.post('/sessions/login', Controllers.sessions.login);
