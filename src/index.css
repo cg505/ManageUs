@@ -11,6 +11,23 @@ h1 {
     text-align: center;
 }
 
+/* Main Content
+---------------------------------------*/
+
+.content {
+    background-color: #4286f4;
+    padding: 20px;
+    overflow: scroll;
+}
+.content h2 {
+    padding: 0;
+    margin: 0;
+}
+.content li {
+    margin-bottom: 10px;
+}
+
+
 /* Top Header
 ---------------------------------------*/
 .header {
@@ -62,20 +79,4 @@ h1 {
 
 .GithubLogo:hover {
     color:#d8d8d8;
-}
-
-/* Main Content
----------------------------------------*/
-
-.content {
-    background-color: #FFF;
-    padding: 20px;
-    overflow: scroll;
-}
-.content h2 {
-    padding: 0;
-    margin: 0;
-}
-.content li {
-    margin-bottom: 10px;
 }
