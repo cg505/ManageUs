@@ -19,7 +19,7 @@
     "sequelize": "^4.37.6"
   },
   "scripts": {
-    "start": "concurrently \"yarn run server\" \"yarn run client\"",
+    "start": "concurrently \"yarn run server\" \"yarn run client\" -n server,client -c blue.dim,green.dim",
     "server": "nodemon -w ./server/ ./server.js",
     "client": "react-scripts start",
     "build": "react-scripts build",
