@@ -4,6 +4,7 @@ import {
     BrowserRouter,
     Redirect
 } from "react-router-dom";
+import md5 from 'md5';
 import authFetch from './utils/authFetch';
 import AuthRoute from './AuthRoute';
 import LoginPanel from "./components/LoginPanel";
@@ -47,6 +48,7 @@ class Main extends Component {
         const resp = await this.authFetch('/api/users');
         if(resp.ok) {
             const user = await resp.json();
+            user.emailHash = md5(user.email);
             this.setState({
                 knowLoggedIn: true,
                 loggedIn: true,
