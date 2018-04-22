@@ -5,6 +5,7 @@ import Join from './components/Join';
 import CreateHousehold from './components/CreateHousehold';
 import logo from './logo.svg';
 import './App.css';
+import Base from './components/Base.js'
 
 class App extends Component {
     constructor(props) {
@@ -63,24 +64,7 @@ class App extends Component {
         }
 
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">{`Hi ${this.props.user.firstName}! Welcome to ManageUs.`}</h1>
-                    {
-                        this.state.household ?
-                        (
-                            <pre>
-                                {JSON.stringify(this.state.household)}
-                            </pre>
-                        ) : (
-                            <h4 style={{color: 'black'}}>
-                                get a household, bro
-                            </h4>
-                        )
-                    }
-                </header>
-            </div>
+            <Base />
         );
     }
 }
