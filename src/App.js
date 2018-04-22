@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router';
 import './App.css';
+import Base from './components/base.js'
 
 class App extends Component {
     constructor() {
@@ -18,6 +19,7 @@ class App extends Component {
           <img src={'https://www.gravatar.com/avatar/' + this.state.md5(this.props.user.email)} className="App-logo" alt="logo" />
           <h1 className="App-title">{`Hi ${this.props.user.firstName}! Welcome to ManageUs.`}</h1>
         </header>
+        <Base />
       </div>
     );
   }
