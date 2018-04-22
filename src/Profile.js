@@ -24,7 +24,7 @@ class Profile extends Component {
                         <img src={"https://www.gravatar.com/avatar/" + this.state.md5(this.props.user.email)} alt="logo"/>
                     </div>
                     <div className="button">
-                        <Button bsSize="xsmall" onClick={() => window.open("https://en.gravatar.com/connect/","_blank")}>Change image</Button>
+                        <Button bsSize="xsmall" onClick={() => window.open("https://en.gravatar.com/connect/", "gravatar", "noopener")}>Change image</Button>
                     </div>
                     <h1 className="user-name">{`Hi ${this.props.user.firstName}!`}</h1>
                     <h1 className="time">{`${this.state.date}`}</h1>
