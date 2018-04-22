@@ -79,3 +79,29 @@ h1 {
 .content li {
     margin-bottom: 10px;
 }
+
+/* Profile
+----------------------------------------*/
+
+.info {
+    font-size: medium;
+    text-align: left;
+}
+
+.time {
+    font-size: small;
+    text-align: right;
+}
+
+.image {
+    text-align: center;
+    height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    text-align: center;
+}
+

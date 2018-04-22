@@ -12,6 +12,7 @@ import MainBase from "./components/base";
 import App from "./App";
 import Bottom from "./Bottom";
 import Top from "./Top";
+import Profile from "./Profile";
 
 class Main extends Component {
     constructor(props) {
@@ -86,7 +87,8 @@ class Main extends Component {
                                             {...props} />
                         )} />
                         <Route exact path="/Register" component={RegisterPanel}/>
-                        <Route exact path="/Main" component={MainBase}/>
+                        <AuthRoute exact path="/Profile" component={Profile} {...this.state} props={{user: this.state.user}} />
+                        <Route exact path="/Main" component={MainBase} />
                         <AuthRoute exact path="/App" component={App} {...this.state} props={{user: this.state.user}} />
                         <Route exact path="/" render={() => (
                             <Redirect to="/App" />
