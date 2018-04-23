@@ -3,31 +3,44 @@
 body {
     background-color: #ffd848;
     margin: 0;
-    overflow: scroll;
+    overflow: scroll;  
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #455a64;
+  font-weight: 400;
+}
 h1 {
-    font-family: sans-serif;
-    text-align: center;
+  line-height: 40px;
+  font-size: 36px;
 }
-
-/* Main Content
----------------------------------------*/
-
-.content {
-    /*background-color: #4286f4;*/
-    background-color: #FFF;
-    padding: 20px;
-    overflow: scroll;
+h2 {
+  line-height: 36px;
+  font-size: 24px;
 }
-.content h2 {
-    padding: 0;
-    margin: 0;
+h3 {
+  line-height: 30px;
+  font-size: 21px;
 }
-.content li {
-    margin-bottom: 10px;
+h4 {
+  line-height: 22px;
+  font-size: 18px;
 }
-
+h5 {
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 400;
+}
+h6 {
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: 400;
+}
 
 /* Top Header
 ---------------------------------------*/

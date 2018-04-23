@@ -4,14 +4,16 @@ import Chores from './ChoresPanel'
 import Note from './NotePanel'
 import Rules from './RulesPanel'
 import Poll from './PollPanel'
+import Name from './NamesPanel'
 
 class Base extends Component {
     render() {
         return (
             <div className="list-group" id="list-tab">
                 <div className="flex-container">
-                    <Grocery />
+                    <Name />
                     <Chores />
+                    <Grocery />
                     <Note />
                     <Rules />
                     <Poll />
