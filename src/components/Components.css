@@ -20,6 +20,14 @@
     background-color: white;
     font-family: 'Open Sans', sans-serif;
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 2px 20px 0 rgba(0,0,0,0.19) !important;
+    transition: border 0.3s;
+    transition: background-color 0.3s;
+}
+
+.flex-item:hover {
+    background-color: #f3f2f6;
+    /*border-color: #6ff24c;*/
+    cursor: pointer;
 }
 
 .flex-item-header {
