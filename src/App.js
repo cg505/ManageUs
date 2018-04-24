@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router';
 import './App.css';
-import Base from './components/base.js'
+import Base from './components/Base.js'
 
 class App extends Component {
     constructor() {

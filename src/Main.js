@@ -8,7 +8,7 @@ import authFetch from './utils/authFetch';
 import AuthRoute from './AuthRoute';
 import LoginPanel from "./components/LoginPanel";
 import RegisterPanel from "./components/RegisterPanel";
-import MainBase from "./components/base";
+import MainBase from "./components/Base";
 import App from "./App";
 import Bottom from "./Bottom";
 import Top from "./Top";
