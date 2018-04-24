@@ -3,7 +3,7 @@
 body {
     background-color: #ffd848;
     margin: 0;
-    overflow: scroll;
+    overflow: scroll;  
 }
 
 h1,
@@ -12,34 +12,34 @@ h3,
 h4,
 h5,
 h6 {
-    color: #455a64;
-    font-weight: 400;
+  color: #455a64;
+  font-weight: 400;
 }
 h1 {
-    line-height: 40px;
-    font-size: 36px;
+  line-height: 40px;
+  font-size: 36px;
 }
 h2 {
-    line-height: 36px;
-    font-size: 24px;
+  line-height: 36px;
+  font-size: 24px;
 }
 h3 {
-    line-height: 30px;
-    font-size: 21px;
+  line-height: 30px;
+  font-size: 21px;
 }
 h4 {
-    line-height: 22px;
-    font-size: 18px;
+  line-height: 22px;
+  font-size: 18px;
 }
 h5 {
-    line-height: 18px;
-    font-size: 16px;
-    font-weight: 400;
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 400;
 }
 h6 {
-    line-height: 16px;
-    font-size: 14px;
-    font-weight: 400;
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 /* Top Header
@@ -70,6 +70,30 @@ h6 {
     display: inline-block;
 }
 
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-title {
+    font-size: 1.5em;
+    color: white;
+}
+
+.App-intro {
+    font-size: large;
+}
 
 /* Bottom Footer
 ---------------------------------------*/
