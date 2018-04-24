@@ -6,13 +6,8 @@ body {
     overflow: scroll;  
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #455a64;
+h1, h2, h3, h4, h5, h6 {
+  color: #131516;
   font-weight: 400;
 }
 h1 {

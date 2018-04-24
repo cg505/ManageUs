@@ -10,6 +10,9 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
+    height                : 'auto',
+    width                 : 'auto',
+    maxWidth              : '800px',
     transform             : 'translate(-50%, -50%)'
 }
 };
@@ -43,18 +46,36 @@ closeModal() {
     this.setState({modalIsOpen: false});
 }
 
+//TODO: Create Function to populate table of Chores.
+//TODO: Create Function to add Chore to Household
+//When Done checkmark is clicked. Call backend (delete that chore) and refresh table
+
 render() {
     return (
       <div>
       <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
+        <h1><img src={ChoresImage} alt="ChoresImage" /> Chores</h1>
+        <table className="table table-hover">
+        <tr>
+            <th>Chore</th>
+            <th>Assigned to</th>
+            <th>Done?</th>
+        </tr>
+        <tr>
+            <td>Wash Dishs</td>
+            <td>Devin Sova</td>
+            <td><input type="checkbox" name="chore1" value="chore1" /></td>
+        </tr>
+        </table>
       </Modal>
 
       <div className="flex-item" id="Chores" onClick={this.openModal}>
       <div className="flex-item-header">
-      <img src={ChoresImage} alt="logo"/>
+
+      <img src={ChoresImage} alt="ChoresImage" />
       <h4>Chores</h4>
       </div>
-      <span className="badge badge-primary badge-pill">1 day ago</span>
+      <span className="label label-danger">1 Items</span>
       <h5 className="mb-1">Chores List</h5>
       <p className="mb-1">add some thing here</p>
       <small>by XXX</small>
