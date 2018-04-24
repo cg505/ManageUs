@@ -89,8 +89,10 @@ class Main extends Component {
                                             {...props} />
                         )} />
                         <Route exact path="/Register" component={RegisterPanel}/>
+
                         <AuthRoute exact path="/Profile" component={Profile} {...this.state} props={{user: this.state.user}} />
                         <Route exact path="/Main" component={MainBase} />
+
                         <AuthRoute exact path="/App" component={App} {...this.state} props={{user: this.state.user}} />
                         <Route exact path="/" render={() => (
                             <Redirect to="/App" />

@@ -1,40 +1,49 @@
 /* Main App Components
 ---------------------------------------*/
+
 .flex-container {
     padding: 0;
     margin: 0;
     list-style: none;
-
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    background-color: #f9f9f9;
 }
 
 .flex-item {
     border-radius: 15px;
-    border: 4px solid;
-    border-color: #4286f4;
-    /*
-    border-top-color: #ff00a3;
-    border-bottom-color: #ffa300;
-    border-left-color: #ffd848;
-    border-right-color: #551a7d;
-    */
-
-    width: 300px;
-    height: 200px; 
-    margin-top: 10px;
-    margin-bottom: 10px;
+    background-color: #ffffff;
+    width: 350px;
+    height: auto; 
+    margin: 10px;
     background-color: white;
     font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 2px 20px 0 rgba(0,0,0,0.19) !important;
 }
 
 .flex-item-header {
     border-top-right-radius: 11px;
     border-top-left-radius: 11px;
-    background-color: #f5477b;
+    /*background-color: #f5477b;*/
     color: white;
     padding: 1px;
+    text-align: center;
+}
+
+.flex-item-content {
+    
+}
+
+/* NamesPanel
+---------------------------------------*/
+
+.NamesPanel {
+
+}
+
+.NamesPanel-modal {
+
 }
 
 /* Login and Register Components
