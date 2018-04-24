@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Components.css';
 import Modal from 'react-modal';
-import GroceryImage from '../img/groceries.png'
+import GroceryImage from '../img/groceries.png';
 
 const customStyles = {
   content : {
@@ -51,7 +51,7 @@ closeModal() {
 render() {
     return (
         <div>
-          <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
+        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
             <img src={GroceryImage} alt="GroceryImage" /><h1>Groceries</h1>
             <table className="table table-hover">
             <tr>
@@ -64,7 +64,7 @@ render() {
                 <td>Eggs</td>
             </tr>
             </table>
-            </Modal>
+        </Modal>
         <div className="flex-item" id="Grocery" onClick={this.openModal}>
         <div className = "flex-item-header">
         <img src={GroceryImage} alt="GroceryImage" />

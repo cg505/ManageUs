@@ -73,7 +73,7 @@ render() {
       <img src={ChoresImage} alt="ChoresImage" />
       <h4>Chores</h4>
       </div>
-      <span className="label label-default">1 Items</span>
+      <span className="label label-danger">1 Items</span>
       <h5 className="mb-1">Chores List</h5>
       <p className="mb-1">add some thing here</p>
       <small>by XXX</small>

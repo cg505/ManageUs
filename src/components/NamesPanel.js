@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Components.css';
+import Modal from 'react-modal';
 import HouseImage from '../img/house.png'
 
 //TODO: Change info to static
@@ -12,12 +13,13 @@ render() {
       		<img src={HouseImage} alt="HouseImage" />
       		<h4>"Household Name"</h4>
       	</div>
-      <h3>
+        <span className="label label-default">4 People</span>
+        <h5>
       	Devin S.<br/><br/>
       	Yufei X.<br/><br/>
       	Christopher C.<br/><br/>
       	Person 4<br/><br/>
-      	</h3>
+      	</h5>
       </div>
       );
 }
