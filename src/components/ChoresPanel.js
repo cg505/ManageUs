@@ -10,6 +10,8 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
+    height                : '400px',
+    width                 : '800px',
     transform             : 'translate(-50%, -50%)'
 }
 };
@@ -43,10 +45,24 @@ closeModal() {
     this.setState({modalIsOpen: false});
 }
 
+//TODO: Create Function to populate table of Chores
+
 render() {
     return (
       <div>
       <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
+        <table>
+        <tr>
+            <th>Chore</th>
+            <th>Assigned to</th>
+            <th>Done?</th>
+        </tr>
+        <tr>
+            <td>Wash Dishs</td>
+            <td>Devin Sova</td>
+            <td><input type="checkbox" name="chore1" value="chore1" /></td>
+        </tr>
+        </table>
       </Modal>
 
       <div className="flex-item" id="Chores" onClick={this.openModal}>
