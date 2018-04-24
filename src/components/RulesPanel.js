@@ -7,10 +7,10 @@ class RulesPanel extends Component {
         return (
             <a href="/Rules" className="flex-item" id="Rules">
                 <div className = "flex-item-header">
-                    <img src={RulesImage} />
+                    <img src={RulesImage} alt="RulesImage"/>
                     <h4>Rules</h4>
                 </div>
-                <span className="badge badge-primary badge-pill">1 day ago</span>
+                <span className="label label-info">Last Editied: 4/20/18</span>
                 <h5 className="mb-1">Rules List</h5>
                 <p className="mb-1">add some thing here</p>
                 <small>by XXX</small>

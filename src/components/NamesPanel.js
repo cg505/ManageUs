@@ -9,7 +9,7 @@ render() {
     return (
       <div className="flex-item" id="Chores" onClick={this.openModal}>
       	<div className="flex-item-header">
-      		<img src={HouseImage} />
+      		<img src={HouseImage} alt="HouseImage" />
       		<h4>"Household Name"</h4>
       	</div>
       <h3>

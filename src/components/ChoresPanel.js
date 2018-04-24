@@ -45,13 +45,16 @@ closeModal() {
     this.setState({modalIsOpen: false});
 }
 
-//TODO: Create Function to populate table of Chores
+//TODO: Create Function to populate table of Chores.
+//TODO: Create Function to add Chore to Household
+//When Done checkmark is clicked. Call backend (delete that chore) and refresh table
 
 render() {
     return (
       <div>
       <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
-        <table>
+        <img src={ChoresImage} alt="ChoresImage" /><h1>Chores</h1>
+        <table className="table table-hover">
         <tr>
             <th>Chore</th>
             <th>Assigned to</th>
@@ -67,10 +70,10 @@ render() {
 
       <div className="flex-item" id="Chores" onClick={this.openModal}>
       <div className="flex-item-header">
-      <img src={ChoresImage} />
+      <img src={ChoresImage} alt="ChoresImage" />
       <h4>Chores</h4>
       </div>
-      <span className="badge badge-primary badge-pill">1 day ago</span>
+      <span className="label label-default">1 Items</span>
       <h5 className="mb-1">Chores List</h5>
       <p className="mb-1">add some thing here</p>
       <small>by XXX</small>

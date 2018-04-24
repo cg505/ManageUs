@@ -7,10 +7,10 @@ class PollPanel extends Component {
         return (
             <a href="/Polls" className="flex-item" id="Polls">
                 <div className = "flex-item-header">
-                    <img src={PollImage} />
+                    <img src={PollImage} alt="PollImage" />
                     <h4>Poll</h4>
                 </div>
-                <span className="badge badge-primary badge-pill">1 day ago</span>
+                <span className="label label-warning">2 Current Polls</span>
                 <h5 className="mb-1">Polls</h5>
                 <p className="mb-1">add some thing here</p>
                 <small>by XXX</small>
