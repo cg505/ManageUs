@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: 'householdId'
             })
         );
+
+        Household.hasOne(models.Rules, {
+            foreignKey: 'householdId'
+        });
     };
 
     return Household;
