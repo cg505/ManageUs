@@ -11,6 +11,11 @@ class Profile extends Component {
     }
 
     render() {
+        let household = "not in a household";
+        if(this.props.user.Household) {
+            household = this.props.user.Household.name;
+        }
+
         return (
             <div className="content">
                 <header className="Profile-header">
@@ -31,14 +36,14 @@ class Profile extends Component {
                         <div className="form-group">
                             <label className="info">email:</label>
                             <input className="form-control mx-sm-3" id="disabledInput" type="text"
-                                   placeholder= {`${this.props.user.email}`} disabled/>
+                                   placeholder={this.props.user.email} disabled/>
                         </div>
                     </form>
                     <form className="form-inline">
                         <div className="form-group">
                             <label className="info">House Hold: </label>
                             <input className="form-control mx-sm-3" id="disabledInput" type="text"
-                                   placeholder= "place house hold here" disabled/>
+                                   placeholder={household} disabled/>
                         </div>
                     </form>
                 </header>
