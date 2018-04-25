@@ -10,8 +10,9 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    height                : '400px',
-    width                 : '800px',
+    height                : 'auto',
+    width                 : 'auto',
+    maxWidth              : '800px',
     transform             : 'translate(-50%, -50%)'
 }
 };
@@ -53,7 +54,7 @@ render() {
     return (
       <div>
       <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
-        <img src={ChoresImage} alt="ChoresImage" /><h1>Chores</h1>
+        <h1><img src={ChoresImage} alt="ChoresImage" /> Chores</h1>
         <table className="table table-hover">
         <tr>
             <th>Chore</th>

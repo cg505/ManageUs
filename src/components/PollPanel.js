@@ -10,8 +10,9 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    height                : '400px',
-    width                 : '800px',
+    height                : 'auto',
+    width                 : 'auto',
+    maxWidth              : '800px',
     transform             : 'translate(-50%, -50%)'
 }
 };
@@ -48,16 +49,23 @@ render() {
     return (
         <div>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
-            <img src={PollImage} alt="PollImage" /><h1>Polls</h1>
+            <h1><img src={PollImage} alt="PollImage" /> Polls</h1>
             <table className="table table-hover">
             <tr>
-                <th>Item</th>
+                <th>Author</th>
+                <th>Description</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+                <th>Option 4</th>
             </tr>
             <tr>
-                <td>Milk</td>
-            </tr>
-            <tr>
-                <td>Eggs</td>
+                <td>Devin Sova</td>
+                <td>Finish this app because I want to get the summer break!</td>
+                <td><button type="button" class="btn btn-success">Yes</button><span className="label label-success">2</span></td>
+                <td><button type="button" class="btn btn-danger">No</button><span className="label label-danger">1</span></td>
+                <td>NULL</td>
+                <td>NULL</td>
             </tr>
             </table>
         </Modal>

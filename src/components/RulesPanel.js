@@ -10,8 +10,9 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    height                : '400px',
-    width                 : '800px',
+    height                : 'auto',
+    width                 : 'auto',
+    maxWidth              : '800px',
     transform             : 'translate(-50%, -50%)'
 }
 };
@@ -50,16 +51,10 @@ render() {
     return (
         <div>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
-            <img src={RulesImage} alt="RulesImage" /><h1>Rules</h1>
+            <h1><img src={RulesImage} alt="RulesImage" /> Rules</h1>
             <table className="table table-hover">
             <tr>
-                <th>Item</th>
-            </tr>
-            <tr>
-                <td>Milk</td>
-            </tr>
-            <tr>
-                <td>Eggs</td>
+                <td>The Rules for this household will go as such. There will be noise. There will be no friends. There will be no left out food. There will be taco tuesdays. There will be no partys. And there shant be any celebrations.</td>
             </tr>
             </table>
         </Modal>

@@ -10,8 +10,9 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    height                : '400px',
-    width                 : '800px',
+    height                : 'auto',
+    width                 : 'auto',
+    maxWidth              : '800px',
     transform             : 'translate(-50%, -50%)'
 }
 };
@@ -49,18 +50,19 @@ render() {
     return (
         <div>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
-            <img src={NoteImage} alt="NoteImage" /><h1>Notes</h1>
+            <h1><img src={NoteImage} alt="NoteImage" /> Notes</h1>
             <table className="table table-hover">
             <tr>
-                <th>Item</th>
+                <th>Author</th>
+                <th>Message</th>
+                <th>Expiration</th>
             </tr>
             <tr>
-                <td>Milk</td>
+                <td>Devin Sova</td>
+                <td>What's up my dudes. I wanted to input a really long message to see how the table will format it.</td>
+                <td>04/22/18 8:00PM</td>
             </tr>
-            <tr>
-                <td>Eggs</td>
-            </tr>
-            </table>
+        </table>
         </Modal>
         <div className="flex-item" id="Note" onClick={this.openModal}>
         <div className = "flex-item-header">
