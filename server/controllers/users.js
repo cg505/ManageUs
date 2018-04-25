@@ -8,7 +8,11 @@ module.exports = {
         }
         try {
             const user = await Models.User.findById(req.session.userId, {
-                attributes: ['firstName', 'lastName', 'email']
+                attributes: ['firstName', 'lastName', 'email'],
+                include: [{
+                    model: Models.Household,
+                    attributes: ['name']
+                }]
             });
 
             if(user) {

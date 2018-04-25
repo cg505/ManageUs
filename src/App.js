@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import authFetch from './utils/authFetch';
 import Join from './components/Join';
 import CreateHousehold from './components/CreateHousehold';
-import logo from './logo.svg';
-import './App.css';
 import Base from './components/Base.js'
 import "./index.css"
 
