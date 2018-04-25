@@ -245,3 +245,54 @@ Response:
     "createdAt": datetime
 }
 ```
+
+
+## Rules controller
+
+### GET /households/rules
+
+- Must be authenticated
+
+Response:
+`null` if no rules have been created yet, otherwise
+```json
+{
+    "id": integer
+    "text": string
+    "lastEditor": {
+        "id": integer
+        "firstName": string
+        "lastName": string
+    },
+    "createdAt": datetime,
+    "updatedAt": datetime
+}
+```
+
+### POST /households/rules
+
+Create or update rules
+
+- Must be authenticated
+
+Request:
+```json
+{
+    "text": string
+}
+```
+
+Response:
+```json
+{
+    "id": integer
+    "text": string
+    "lastEditor": {
+        "id": integer
+        "firstName": string
+        "lastName": string
+    },
+    "createdAt": datetime,
+    "updatedAt": datetime
+}
+```

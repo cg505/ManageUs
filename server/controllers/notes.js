@@ -29,6 +29,10 @@ module.exports = {
             throw error;
         }
 
+        if(!user) {
+            return res.status(500).send();
+        }
+
         if(!user.Household) {
             return res.status(400).send({
                 error: 'Not in a household'
@@ -38,10 +42,6 @@ module.exports = {
         const notes = user.Household.Notes.map(note => Object.assign({}, note.get(), {
             //color: transformColor(note.color)
         }));
-
-        if(!user) {
-            return res.status(500).send();
-        }
 
         return res.status(200).send(notes);
     },

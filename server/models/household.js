@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
         );
 
         Household.hasOne(models.Rules, {
-            foreignKey: 'householdId'
+            foreignKey: 'householdId',
+            as: 'rules'
         });
     };
 

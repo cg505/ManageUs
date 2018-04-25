@@ -25,6 +25,9 @@ module.exports = (app) => {
     app.post('/households/notes', Controllers.notes.create);
     app.post('/households/notes/:noteId', Controllers.notes.update);
 
+    app.get('/households/rules', Controllers.rules.get);
+    app.post('/households/rules', Controllers.rules.update);
+
     // fallthrough
     app.get('/*', (req, res) =>
         res.status(404).send({
