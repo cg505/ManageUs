@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Components.css';
 import Modal from 'react-modal';
+import ChoresImage from '../img/chores.png'
 
 const customStyles = {
   content : {
@@ -9,73 +10,78 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
+    height                : 'auto',
+    width                 : 'auto',
+    maxWidth              : '800px',
     transform             : 'translate(-50%, -50%)'
-  }
+}
 };
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root')
 
 class ChoresPanel extends Component {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.state = {
-        modalIsOpen: false
-        };
+    this.state = {
+      modalIsOpen: false
+  };
 
-        this.openModal = this.openModal.bind(this);
-        this.afterOpenModal = this.afterOpenModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
-    }
+  this.openModal = this.openModal.bind(this);
+  this.afterOpenModal = this.afterOpenModal.bind(this);
+  this.closeModal = this.closeModal.bind(this);
+}
 
-  openModal() {
+openModal() {
     this.setState({modalIsOpen: true});
-  }
+}
 
-  afterOpenModal() {
+afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
-  }
+    // this.subtitle.style.color = '#f00';
+}
 
-  closeModal() {
+closeModal() {
     this.setState({modalIsOpen: false});
-  }
+}
 
-    render() {
-        return (
-            <div className="flex-item" id="Chores">
-                <div className = "flex-item-header">
-                    <h4>Chores</h4>
-                </div>
+//TODO: Create Function to populate table of Chores.
+//TODO: Create Function to add Chore to Household
+//When Done checkmark is clicked. Call backend (delete that chore) and refresh table
 
-                <button onClick={this.openModal}>Open Modal</button>
-                <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
+render() {
+    return (
+      <div>
+      <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
+        <h1><img src={ChoresImage} alt="ChoresImage" /> Chores</h1>
+        <table className="table table-hover">
+        <tr>
+            <th>Chore</th>
+            <th>Assigned to</th>
+            <th>Done?</th>
+        </tr>
+        <tr>
+            <td>Wash Dishs</td>
+            <td>Devin Sova</td>
+            <td><input type="checkbox" name="chore1" value="chore1" /></td>
+        </tr>
+        </table>
+      </Modal>
 
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
-        </Modal>
+      <div className="flex-item" id="Chores" onClick={this.openModal}>
+      <div className="flex-item-header">
 
-                <span className="badge badge-primary badge-pill">1 day ago</span>
-                <h5 className="mb-1">Chores List</h5>
-                <p className="mb-1">add some thing here</p>
-                <small>by XXX</small>
-            </div>
-        );
-    }
+      <img src={ChoresImage} alt="ChoresImage" />
+      <h4>Chores</h4>
+      </div>
+      <span className="label label-danger">1 Items</span>
+      <h5 className="mb-1">Chores List</h5>
+      <p className="mb-1">add some thing here</p>
+      <small>by XXX</small>
+      </div>
+      </div>
+      );
+}
 }
 export default ChoresPanel;

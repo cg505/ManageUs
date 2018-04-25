@@ -6,6 +6,8 @@ import CreateHousehold from './components/CreateHousehold';
 import logo from './logo.svg';
 import './App.css';
 import Base from './components/Base.js'
+import "./index.css"
+
 
 class App extends Component {
     constructor(props) {
@@ -64,7 +66,13 @@ class App extends Component {
         }
 
         return (
-            <Base />
+            <div className="App">
+                <header className="App-header">
+                    <img src={'https://www.gravatar.com/avatar/' + this.props.user.emailHash} className="App-logo" alt="logo" />
+                    <h1 className="App-title">{`Hi ${this.props.user.firstName}! Welcome to ManageUs.`}</h1>
+                </header>
+                <Base />
+            </div>
         );
     }
 }

@@ -14,7 +14,13 @@ class Top extends Component {
                         <li><NavLink to="/Login">Login</NavLink></li>
                     )
                 }
-                <li><NavLink to="/Register">Register</NavLink></li>
+                {
+                    this.props.knowLoggedIn && this.props.loggedIn ? (
+                        <li><NavLink to="/Profile">Profile</NavLink></li>
+                    ) : (
+                        <li><NavLink to="/Register">Register</NavLink></li>
+                    )
+                }
                 <li><NavLink to="/App">App</NavLink></li>
             </ul>
         );

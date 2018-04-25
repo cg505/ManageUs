@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Components.css';
 import Modal from 'react-modal';
-import RulesImage from '../img/rules.png';
+import HouseImage from '../img/house.png'
 
 const customStyles = {
   content : {
@@ -20,7 +20,9 @@ const customStyles = {
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root')
 
-class RulesPanel extends Component {
+
+//TODO: Change info to pull from database
+class NamesPanel extends Component {
 
 constructor() {
     super();
@@ -51,25 +53,41 @@ render() {
     return (
         <div>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
-            <h1><img src={RulesImage} alt="RulesImage" /> Rules</h1>
+            <h1><img src={HouseImage} alt="HouseImage" /> Our House</h1>
             <table className="table table-hover">
             <tr>
-                <td>The Rules for this household will go as such. There will be noise. There will be no friends. There will be no left out food. There will be taco tuesdays. There will be no partys. And there shant be any celebrations.</td>
+                <th>Name</th>
+            </tr>
+            <tr>
+                <td>Devin Sova</td>
+            </tr>
+            <tr>
+                <td>Christopher Cooper</td>
+            </tr>
+            <tr>
+                <td>Yufei Xu</td>
+            </tr>
+            <tr>
+                <td>Person 4</td>
             </tr>
             </table>
         </Modal>
-        <div className="flex-item" id="Rules" onClick={this.openModal}>
-        <div className = "flex-item-header">
-        <img src={RulesImage} alt="RulesImage"/>
-        <h4>Rules</h4>
-        </div>
-        <span className="label label-info">Last Editied: 4/20/18</span>
-        <h5 className="mb-1">Rules List</h5>
-        <p className="mb-1">add some thing here</p>
-        <small>by XXX</small>
-        </div>
-        </div>
-    );
+      <div className="flex-item" id="Chores" onClick={this.openModal}>
+      	<div className="flex-item-header">
+      		<img src={HouseImage} alt="HouseImage" />
+      		<h4>Our House</h4>
+      	</div>
+        <span className="label label-default">4 People</span>
+        <h5>
+      	Devin S.<br/><br/>
+        Christopher C.<br/><br/>
+      	Yufei X.<br/><br/>
+      	Person 4<br/><br/>
+      	</h5>
+      </div>
+      </div>
+      );
 }
 }
-export default RulesPanel;
+export default NamesPanel;
+
