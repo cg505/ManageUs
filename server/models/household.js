@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
         const hasManyModels = [
             models.User,
             models.JoinKey,
-            models.Note
+            models.Note,
+            models.GroceryItem
         ];
 
         hasManyModels.forEach((model) =>

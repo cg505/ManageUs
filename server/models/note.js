@@ -2,7 +2,8 @@ module.exports = (sequelize, DataTypes) => {
     const Note = sequelize.define('Note', {
         color: DataTypes.INTEGER,
         text: DataTypes.TEXT,
-        creatorId: DataTypes.INTEGER
+        creatorId: DataTypes.INTEGER,
+        householdId: DataTypes.INTEGER
     }, {});
 
     Note.associate = (models) => {
