@@ -28,6 +28,10 @@ module.exports = (app) => {
     app.get('/households/rules', Controllers.rules.get);
     app.post('/households/rules', Controllers.rules.update);
 
+    app.get('/households/groceries', Controllers.groceries.index);
+    app.post('/households/groceries', Controllers.groceries.create);
+    app.post('/households/groceries/:groceryId', Controllers.groceries.update);
+
     // fallthrough
     app.get('/*', (req, res) =>
         res.status(404).send({

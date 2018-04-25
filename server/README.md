@@ -296,3 +296,80 @@ Response:
     "updatedAt": datetime
 }
 ```
+
+### GET /households/groceries
+
+Gets all grocery list items in the user's household
+
+- Must be authenticated
+
+Response:
+```json
+[
+    {
+        "id": integer,
+        "name": string,
+        "checked": boolean,
+        "creator": {
+            "id": integer,
+            "firstName": string,
+            "lastName": string
+        }
+        "createdAt": datetime,
+        "updatedAt": datetime
+    }
+]
+```
+
+
+### POST /households/groceries
+
+Create a new grocery list item
+
+- Must be authenticated
+
+Request:
+```json
+{
+    "name": string
+}
+```
+
+Response:
+```json
+{
+    "id": integer,
+    "name": string,
+    "creatorId": integer,
+    "householdId": integer,
+    "updatedAt": datetime,
+    "createdAt": datetime
+}
+```
+
+### POST /households/groceries/:groceryId
+
+Updates the grocery list item with id :groceryId.
+Both request fields are optional.
+
+- Must be authenticated
+
+Request:
+```json
+{
+    "name": string,
+    "checked": boolean
+}
+```
+
+Response:
+```json
+{
+    "id": integer,
+    "name": string,
+    "creatorId": integer,
+    "householdId": integer,
+    "updatedAt": datetime,
+    "createdAt": datetime
+}
+```

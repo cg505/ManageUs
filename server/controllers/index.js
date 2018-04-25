@@ -3,5 +3,6 @@ module.exports = {
     sessions: require('./sessions'),
     households: require('./households'),
     notes: require('./notes'),
-    rules: require('./rules')
+    rules: require('./rules'),
+    groceries: require('./groceries')
 };

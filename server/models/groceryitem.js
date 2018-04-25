@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         });
 
         GroceryItem.belongsTo(models.User, {
+            as: 'creator',
             foreignKey: 'creatorId'
         });
     };
