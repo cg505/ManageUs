@@ -72,10 +72,10 @@ render() {
             </tr>
             </table>
         </Modal>
-      <div className="flex-item" id="Chores" onClick={this.openModal}>
+        <div className="flex-item" id="Chores" onClick={this.openModal}>
       	<div className="flex-item-header">
-      		<img src={HouseImage} alt="HouseImage" />
-      		<h4>Our House</h4>
+      	<img src={HouseImage} alt="HouseImage" />
+      	<h4>Our House</h4>
       	</div>
         <span className="label label-default">4 People</span>
         <h5>
