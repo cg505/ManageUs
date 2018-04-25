@@ -65,6 +65,30 @@ h6 {
     display: inline-block;
 }
 
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-title {
+    font-size: 1.5em;
+    color: white;
+}
+
+.App-intro {
+    font-size: large;
+}
 
 /* Bottom Footer
 ---------------------------------------*/
@@ -89,3 +113,43 @@ h6 {
 .GithubLogo:hover {
     color:#d8d8d8;
 }
+
+/*
+--------- Profile*/
+
+.Profile-header{
+    border-radius: 15px;
+    border: 4px solid;
+    background: white;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.user-name{
+    border-top-right-radius: 11px;
+    border-top-left-radius: 11px;
+    text-align: center;
+}
+
+.info {
+    font-size: medium;
+    text-align: left;
+}
+
+.time {
+    font-size: small;
+    text-align: left;
+}
+
+.image {
+    text-align: center;
+    height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    text-align: center;
+}
+

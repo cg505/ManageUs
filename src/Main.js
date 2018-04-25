@@ -4,14 +4,17 @@ import {
     BrowserRouter,
     Redirect
 } from "react-router-dom";
+import md5 from 'md5';
 import authFetch from './utils/authFetch';
 import AuthRoute from './AuthRoute';
 import LoginPanel from "./components/LoginPanel";
 import RegisterPanel from "./components/RegisterPanel";
-import Base from "./components/Base";
+import MainBase from "./components/Base";
+
 import App from "./App";
 import Bottom from "./Bottom";
 import Top from "./Top";
+import Profile from "./Profile";
 
 class Main extends Component {
     constructor(props) {
@@ -46,6 +49,7 @@ class Main extends Component {
         const resp = await this.authFetch('/api/users');
         if(resp.ok) {
             const user = await resp.json();
+            user.emailHash = md5(user.email);
             this.setState({
                 knowLoggedIn: true,
                 loggedIn: true,
@@ -86,7 +90,9 @@ class Main extends Component {
                                             {...props} />
                         )} />
                         <Route exact path="/Register" component={RegisterPanel}/>
-                        <Route exact path="/Main" component={Base}/>
+                        <AuthRoute exact path="/Profile" component={Profile} {...this.state} props={{user: this.state.user}} />
+                        <Route exact path="/Main" component={MainBase} />
+
                         <AuthRoute exact path="/App" component={App} {...this.state} props={{user: this.state.user}} />
                         <Route exact path="/" render={() => (
                             <Redirect to="/App" />
