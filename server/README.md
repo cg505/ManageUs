@@ -170,3 +170,78 @@ Leaves household
 - Must be authenticated
 
 No request body, returns 204 No Content on success.
+
+
+## Notes controller
+
+### GET /households/notes
+
+Gets all notes in the user's household
+
+- Must be authenticated
+
+Response:
+```json
+[
+    {
+        "id": integer,
+        "text": string,
+        "creator": {
+            "id": integer,
+            "firstName": string,
+            "lastName": string
+        }
+    }
+]
+```
+
+
+### POST /households/notes
+
+Create a new note
+
+- Must be authenticated
+
+Request:
+```json
+{
+    "text": string
+}
+```
+
+Response:
+```json
+{
+    "id": integer,
+    "text": string,
+    "creatorId": integer,
+    "householdId": integer,
+    "updatedAt": datetime,
+    "createdAt": datetime
+}
+```
+
+### POST /households/notes/:noteId
+
+Updates note with id :noteId
+
+- Must be authenticated
+
+Request:
+```json
+{
+    "text": string
+}
+```
+
+Response:
+```json
+{
+    "id": integer,
+    "text": string,
+    "creatorId": integer,
+    "householdId": integer,
+    "updatedAt": datetime,
+    "createdAt": datetime
+}
+```

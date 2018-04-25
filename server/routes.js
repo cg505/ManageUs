@@ -21,6 +21,10 @@ module.exports = (app) => {
     app.post('/households/join', Controllers.households.join);
     app.post('/households/leave', Controllers.households.leave);
 
+    app.get('/households/notes', Controllers.notes.index);
+    app.post('/households/notes', Controllers.notes.create);
+    app.post('/households/notes/:noteId', Controllers.notes.update);
+
     // fallthrough
     app.get('/*', (req, res) =>
         res.status(404).send({

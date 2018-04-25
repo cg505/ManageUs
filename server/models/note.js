@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         Note.belongsTo(models.Household, {
             foreignKey: 'householdId'
         });
-        Note.belongsTo(models.Household, {
+        Note.belongsTo(models.User, {
             as: 'creator',
             foreignKey: 'creatorId'
         });
