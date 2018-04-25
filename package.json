@@ -9,6 +9,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "md5": "^2.2.1",
     "morgan": "^1.9.0",
     "mysql2": "^1.5.3",
     "react": "^16.3.1",
@@ -20,7 +21,7 @@
     "sequelize": "^4.37.6"
   },
   "scripts": {
-    "start": "concurrently \"yarn run server\" \"yarn run client\"",
+    "start": "concurrently \"yarn run server\" \"yarn run client\" -n server,client -c blue.dim,green.dim",
     "server": "nodemon -w ./server/ ./server.js",
     "client": "react-scripts start",
     "build": "react-scripts build",

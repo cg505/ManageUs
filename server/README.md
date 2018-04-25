@@ -162,3 +162,11 @@ Response:
     "householdId": integer
 }
 ```
+
+### POST /households/leave
+
+Leaves household
+
+- Must be authenticated
+
+No request body, returns 204 No Content on success.

@@ -21,6 +21,7 @@ const customStyles = {
 Modal.setAppElement('#root')
 
 class GroceryPanel extends Component {
+
   constructor() {
     super();
 

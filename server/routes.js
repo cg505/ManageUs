@@ -19,6 +19,7 @@ module.exports = (app) => {
     app.post('/households', Controllers.households.create);
     app.post('/households/generateKey', Controllers.households.generateKey);
     app.post('/households/join', Controllers.households.join);
+    app.post('/households/leave', Controllers.households.leave);
 
     // fallthrough
     app.get('/*', (req, res) =>

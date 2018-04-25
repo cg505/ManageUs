@@ -105,6 +105,37 @@ module.exports = {
         }
     },
 
+    async leave(req, res) {
+        if(!req.session.userId) {
+            return res.status(401).send();
+        }
+
+        const user = await Models.User.findById(req.session.userId, {
+            attributes: ['id'],
+            include: [Models.Household]
+        });
+
+        if(!user) {
+            return res.status(500).send();
+        }
+
+        if(!user.Household) {
+            return res.status(400).send({
+                error: 'Not in a household'
+            })
+        }
+
+        try {
+            await user.update({
+                householdId: null
+            });
+            return res.status(204).send();
+        } catch (error) {
+            res.status(500).send(error);
+            throw error;
+        }
+    },
+
     async get(req, res) {
         if(!req.session.userId) {
             return res.status(401).send();
@@ -126,7 +157,7 @@ module.exports = {
         }
 
         if(!user.Household) {
-            return res.status(400).send({
+            return res.status(404).send({
                 error: 'Not in a household'
             })
         }
