@@ -15,11 +15,20 @@
     border-radius: 15px;
     background-color: #ffffff;
     width: 350px;
-    height: auto; 
+    height: 300px; 
     margin: 10px;
+    padding: 20px;
     background-color: white;
     font-family: 'Open Sans', sans-serif;
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 2px 20px 0 rgba(0,0,0,0.19) !important;
+    transition: border 0.3s;
+    transition: background-color 0.3s;
+}
+
+.flex-item:hover {
+    background-color: #f3f2f6;
+    /*border-color: #6ff24c;*/
+    cursor: pointer;
 }
 
 .flex-item-header {
@@ -31,19 +40,28 @@
     text-align: center;
 }
 
-.flex-item-content {
-    
+.table {
+    font-family: 'Open Sans', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-/* NamesPanel
----------------------------------------*/
-
-.NamesPanel {
-
+td, th {
+    border: 1px solid #f5477b;
+    text-align: left;
+    padding: 8px;
+    overflow-wrap: break-word;
 }
 
-.NamesPanel-modal {
+th {
+    line-height: 36px;
+    font-size: 24px;
+}
 
+td {
+    line-height: 16px;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 /* Login and Register Components
@@ -51,6 +69,7 @@
 
 .Authentication {
     padding: 30px;
+    margin: 20px;
     max-width: 350px;
     width: 100% !important;
     background-color: #F7F7F7;
