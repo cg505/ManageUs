@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import "./index.css";
 import {Button} from 'react-bootstrap';
+import authFetch from './utils/authFetch';
 
 class Profile extends Component {
     constructor(props) {
@@ -8,12 +9,30 @@ class Profile extends Component {
 
         const today = new Date();
         this.date = `today is ${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+        this.state = {
+            household: null
+        };
+
+        this.fetchHousehold = this.fetchHousehold.bind(this);
+    }
+
+    componentDidMount() {
+        this.fetchHousehold();
+    }
+
+    async fetchHousehold() {
+        const householdResp = await authFetch.bind(this)('/api/households');
+        if(householdResp.ok)  {
+            this.setState({
+                household: await householdResp.json()
+            });
+        }
     }
 
     render() {
         let household = "not in a household";
-        if(this.props.user.Householdname) {
-            household = this.props.user.Householdname;
+        if(this.state.household) {
+            household = this.state.household.name;
         }
 
         return (

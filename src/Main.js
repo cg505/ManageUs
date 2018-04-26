@@ -50,7 +50,6 @@ class Main extends Component {
         if(resp.ok) {
             const user = await resp.json();
             user.emailHash = md5(user.email);
-            user.Householdname = this.state.name;
             this.setState({
                 knowLoggedIn: true,
                 loggedIn: true,
