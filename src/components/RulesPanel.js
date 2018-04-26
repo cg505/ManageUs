@@ -97,7 +97,12 @@ class RulesPanel extends Component {
     }
 
     render() {
-
+        let lastEdit = 'None';
+        let lastEditName = 'None';
+        if(this.state.rules){
+            lastEdit = this.state.rules.updatedAt;
+            lastEditName = this.state.rules.firstName;
+        }
         return (
             <div>
                 <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
@@ -124,10 +129,10 @@ class RulesPanel extends Component {
                         <img src={RulesImage} alt="RulesImage"/>
                         <h4>Rules</h4>
                     </div>
-                    <span className="label label-info">Last Editied: 4/20/18</span>
+                    <span className="label label-info">Last Editied: {lastEdit}</span>
                     <h5 className="mb-1">Rules List</h5>
                     <p className="mb-1">add some thing here</p>
-                    <small>by XXX</small>
+                    <small>by {lastEditName}</small>
                 </div>
             </div>
         );
