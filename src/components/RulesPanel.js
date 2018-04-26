@@ -101,7 +101,7 @@ class RulesPanel extends Component {
         let lastEditName = 'None';
         if(this.state.rules){
             lastEdit = this.state.rules.updatedAt;
-            lastEditName = this.state.rules.firstName;
+            lastEditName = this.state.rules.lastEditor.firstName;
         }
         return (
             <div>
@@ -118,7 +118,7 @@ class RulesPanel extends Component {
                 </Modal>
 
                 <Modal isOpen={this.state.editRuleIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeEditRule} style={customStyles} contentLabel="edit Modal">
-                    <textarea type="text" value={this.state.text} onChange={e => this.setState({text: e.target.value})}/>
+                    <textarea value={this.state.text} onChange={e => this.setState({text: e.target.value})}/>
                     <div className="edit-button" onClick={this.Save}>
                         <Button bsStyle="info" onClick={this.closeEditRule}>Save</Button>
                     </div>
