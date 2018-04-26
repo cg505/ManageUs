@@ -163,3 +163,15 @@ h6 {
     text-align: center;
 }
 
+/* Create or Join Household Container
+------------------------------------- */
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+}
