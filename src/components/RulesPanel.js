@@ -30,7 +30,8 @@ class RulesPanel extends Component {
         this.state = {
             modalIsOpen: false,
             editRuleIsOpen: false,
-            rules: null
+            rules: null,
+            text: 'no rule'
         };
 
 
