@@ -71,6 +71,7 @@ render() {
 
       <div className="flex-item" id="Chores" onClick={this.openModal}>
       <div className="flex-item-header">
+
       <img src={ChoresImage} alt="ChoresImage" />
       <h4>Chores</h4>
       </div>
