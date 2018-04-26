@@ -3,6 +3,7 @@ import './Components.css';
 import Modal from 'react-modal';
 import RulesImage from '../img/rules.png';
 import {Button} from 'react-bootstrap';
+import authFetch from '../utils/authFetch';
 
 const customStyles = {
     content : {
@@ -29,7 +30,7 @@ class RulesPanel extends Component {
         this.state = {
             modalIsOpen: false,
             editRuleIsOpen: false,
-            ruleText: 'The Rules for this household will go as such. There will be noise. There will be no friends. There will be no left out food. There will be taco tuesdays. There will be no partys. And there shant be any celebrations.'
+            rules: null
         };
 
 
@@ -39,6 +40,7 @@ class RulesPanel extends Component {
         this.openEditRule = this.openEditRule.bind(this);
         this.closeEditRule = this.closeEditRule.bind(this);
         this.Save = this.Save.bind(this);
+        this.fetchRules = this.fetchRules.bind(this);
     }
 
     openModal() {
@@ -62,18 +64,46 @@ class RulesPanel extends Component {
         this.setState({editRuleIsOpen: false});
     }
 
-    Save() {
+    componentDidMount() {
+        this.fetchRules();
+    }
+
+    async fetchRules() {
+        const resp = await authFetch.bind(this)('/api/households/rules');
+        if(resp.ok) {
+            this.setState({
+               rules: await resp.json()
+            });
+
+            if(this.state.rules) {
+                let temp = this.state.rules.text;
+                this.setState({text: temp});
+            }
+        }
+    }
+
+    async Save() {
         console.log("Save");
+        const resp = await authFetch.bind(this)('/api/households/rules', {
+            text: this.state.text
+        });
+
+        if(resp.ok) {
+            this.setState({
+                rules: await resp.json(),
+            })
+        }
     }
 
     render() {
+
         return (
             <div>
                 <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
                     <h1><img src={RulesImage} alt="RulesImage" /> Rules</h1>
                     <table className="table table-hover">
                         <tr>
-                            <td>{this.state.ruleText}</td>
+                            <td>{this.state.text}</td>
                         </tr>
                     </table>
                     <div className="edit-button" onClick={this.openEditRule}>
@@ -82,9 +112,7 @@ class RulesPanel extends Component {
                 </Modal>
 
                 <Modal isOpen={this.state.editRuleIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeEditRule} style={customStyles} contentLabel="edit Modal">
-                    <tr>
-                        <textarea type="text" value={this.state.ruleText} onChange={e => this.setState({ruleText: e.target.value})}/>
-                    </tr>
+                    <textarea type="text" value={this.state.text} onChange={e => this.setState({text: e.target.value})}/>
                     <div className="edit-button" onClick={this.Save}>
                         <Button bsStyle="info" onClick={this.closeEditRule}>Save</Button>
                     </div>
