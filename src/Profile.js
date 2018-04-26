@@ -12,8 +12,8 @@ class Profile extends Component {
 
     render() {
         let household = "not in a household";
-        if(this.props.user.Household) {
-            household = this.props.user.Household.name;
+        if(this.props.user.Householdname) {
+            household = this.props.user.Householdname;
         }
 
         return (
