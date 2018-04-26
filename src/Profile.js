@@ -26,22 +26,21 @@ class Profile extends Component {
                     <div className="button">
                         <Button bsSize="xsmall" onClick={() => window.open("https://en.gravatar.com/connect/", "gravatar", "noopener")}>Change image</Button>
                     </div>
-                    <h1 className="time">{`${this.date}`}</h1>
                     <form className="form-inline">
                         <div className="form-group">
-                            <label className="info">User Name: { `${this.props.user.firstName}  ${this.props.user.lastName}`}</label>
+                            <label className="info">Name: { `${this.props.user.firstName}  ${this.props.user.lastName}`}</label>
                         </div>
                     </form>
                     <form className="form-inline">
                         <div className="form-group">
-                            <label className="info">email:</label>
+                            <label className="info">Email Address:</label>
                             <input className="form-control mx-sm-3" id="disabledInput" type="text"
                                    placeholder={this.props.user.email} disabled/>
                         </div>
                     </form>
                     <form className="form-inline">
                         <div className="form-group">
-                            <label className="info">House Hold: </label>
+                            <label className="info">Household:</label>
                             <input className="form-control mx-sm-3" id="disabledInput" type="text"
                                    placeholder={household} disabled/>
                         </div>

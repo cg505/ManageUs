@@ -6,6 +6,7 @@ import {
     Button
 } from 'react-bootstrap';
 import authFetch from '../utils/authFetch';
+import joinImage from '../img/join.png';
 
 class Join extends Component {
     constructor(props) {
@@ -44,11 +45,12 @@ class Join extends Component {
 
     render() {
         return (
-            <div>
+            <div className="flex-item join">
                 {
                     this.state.error &&
                     (<p>{this.state.error}</p>)
                 }
+                <h3><img src={joinImage} alt="joinImage" /> Join a Household</h3>
                 <Form inline onSubmit={this.submit}>
                     <FormGroup>
                         <FormControl type="text" placeholder="Key" onChange={this.handleChange} value={this.state.key} />

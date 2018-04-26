@@ -56,19 +56,15 @@ class App extends Component {
 
         if(!this.state.household) {
             return (
-                <div>
-                    <Join fetchHousehold={this.fetchHousehold} />
+                <div className="flex-container">
                     <CreateHousehold fetchHousehold={this.fetchHousehold} />
+                    <Join fetchHousehold={this.fetchHousehold} />
                 </div>
             );
         }
 
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={'https://www.gravatar.com/avatar/' + this.props.user.emailHash} className="App-logo" alt="logo" />
-                    <h1 className="App-title">{`Hi ${this.props.user.firstName}! Welcome to ManageUs.`}</h1>
-                </header>
                 <Base />
             </div>
         );

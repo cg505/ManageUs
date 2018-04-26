@@ -3,7 +3,8 @@
 body {
     background-color: #ffd848;
     margin: 0;
-    overflow: scroll;  
+    overflow: scroll;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -114,21 +115,30 @@ h6 {
     color:#d8d8d8;
 }
 
-/*
---------- Profile*/
+/* Profile
+-------------------------------- */
 
-.Profile-header{
+.Profile-header {
+    align-content: center;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
     border-radius: 15px;
-    border: 4px solid;
+    width: 75%;
     background: white;
     font-family: 'Open Sans', sans-serif;
-
 }
 
-.user-name{
+.user-name {
     border-top-right-radius: 11px;
     border-top-left-radius: 11px;
     text-align: center;
+}
+
+.form-inline {
+  align-content: center;
+  text-align: center;
+  padding: 5px;
 }
 
 .info {
@@ -153,3 +163,15 @@ h6 {
     text-align: center;
 }
 
+/* Create or Join Household Container
+------------------------------------- */
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+}
