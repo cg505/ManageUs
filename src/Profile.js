@@ -10,14 +10,17 @@ class Profile extends Component {
         const today = new Date();
         this.date = `today is ${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
         this.state = {
-            household: null
+            household: null,
+            householdKey: null
         };
 
         this.fetchHousehold = this.fetchHousehold.bind(this);
+        this.fetchHouseholdKey = this.fetchHouseholdKey.bind(this);
     }
 
     componentDidMount() {
         this.fetchHousehold();
+        this.fetchHouseholdKey();
     }
 
     async fetchHousehold() {
@@ -27,12 +30,26 @@ class Profile extends Component {
                 household: await householdResp.json()
             });
         }
+
+    }
+
+    async fetchHouseholdKey() {
+        const keyResp = await authFetch.bind(this)('/api/households/keys');
+        if(keyResp.ok) {
+            this.setState({
+                householdKey: await keyResp.json()
+            });
+        }
     }
 
     render() {
         let household = "not in a household";
         if(this.state.household) {
             household = this.state.household.name;
+        }
+        let key = "not in a household";
+        if(this.state.householdKey) {
+            key = this.state.householdKey.key;
         }
 
         return (
@@ -63,6 +80,13 @@ class Profile extends Component {
                             <label className="info">House Hold: </label>
                             <input className="form-control mx-sm-3" id="disabledInput" type="text"
                                    placeholder={household} disabled/>
+                        </div>
+                    </form>
+                    <form className="form-inline">
+                        <div className="form-group">
+                            <label className="info">House Hold Key: </label>
+                            <input className="form-control mx-sm-3" id="disabledInput" type="text"
+                                   placeholder={key} disabled/>
                         </div>
                     </form>
                 </header>
