@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import GroceryImage from '../img/groceries.png';
 
 import GroceryApps from './GroceryApps'
+import authFetch from "../utils/authFetch";
 
 const customStyles = {
     content : {
@@ -31,6 +32,7 @@ class GroceryPanel extends Component {
 
         this.state = {
             modalIsOpen: false,
+            grocery: [],
 
 
         };
@@ -38,6 +40,7 @@ class GroceryPanel extends Component {
         this.openModal = this.openModal.bind(this);
         this.afterOpenModal = this.afterOpenModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.fetchItem = this.fetchItem.bind(this);
     }
 
     openModal() {
@@ -53,6 +56,20 @@ class GroceryPanel extends Component {
         this.setState({modalIsOpen: false});
     }
 
+    componentDidMount() {
+        this.fetchItem();
+    }
+
+    async fetchItem() {
+        const resp = await authFetch('/api/households/groceries');
+        if (resp.ok) {
+            this.setState({
+                grocery: await resp.json()
+            });
+            console.log(this.state.grocery);
+        }
+
+    }
 
 
 
@@ -77,10 +94,8 @@ class GroceryPanel extends Component {
                         <img src={GroceryImage} alt="GroceryImage" />
                         <h4>Grocery</h4>
                     </div>
-                    <span className="label label-primary">6 Items</span>
+                    <span className="label label-primary">{this.state.grocery.length} Items</span>
                     <h5 className="mb-1">Collaborated Grocery List</h5>
-                    <p className="mb-1">add some thing here</p>
-                    <small>by XXX</small>
                 </div>
             </div>
         );

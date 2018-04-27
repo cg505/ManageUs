@@ -43,7 +43,7 @@ class NameApps extends Component {
                                 {key.firstName} {key.lastName}
                             </th>
                         </tr>
-                    }.bind(this))
+                    })
                 }
             </div>
         )

@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
 import './Components.css';
-import {Button} from 'react-bootstrap';
+import authFetch from "../utils/authFetch";
 class GroceryApps extends Component{
     constructor(){
         super();
         this.state= {
-            items: {
-
-            },
+            items: ["Milk", ],
+            grocery: [],
 
 
         };
         this.createItems = this.createItems.bind(this);
-        this.save = this.save.bind(this);
+        this.addItem = this.addItem.bind(this);
+        this.fetchItem = this.fetchItem.bind(this);
     }
 
+    componentDidMount() {
+        this.fetchItem();
+    }
 
-    addItem(item){
-        const time = (new Date()).getTime();
-        this.state.items['item-' + time] = item;
-        this.setState({items: this.state.items});
+    async addItem(item){
+
+        this.setState({items: [...this.state.items, item]});
+        await authFetch('/api/households/groceries', {
+            name: item});
+        //console.log(item);
     }
 
     createItems(e){
@@ -31,19 +36,32 @@ class GroceryApps extends Component{
         }
     }
 
-    async save() {
-        console.log(this.state.items);
+    async fetchItem() {
+        const resp = await authFetch('/api/households/groceries');
+        if (resp.ok) {
+            this.setState({
+                grocery: await resp.json()
+            });
+            console.log(this.state.grocery);
+            }
+
     }
 
     render() {
         return(
             <div>
                 {
-                    Object.keys(this.state.items).map(function(key){
+                    this.state.grocery.map(function(key){
+                        if(key.name){
+                            return <tr><th>
+                                {key.name}
+                            </th></tr>
+                        }
                         return <tr><th>
-                            {this.state.items[key]}
-                        </th></tr>
-                    }.bind(this))
+                            nothing here
+                        </th></tr>;
+                    })
+
                 }
                 <div className="component-wrapper">
                     <form className="form-inline" ref="itemForm" onSubmit={this.createItems}>
@@ -56,9 +74,6 @@ class GroceryApps extends Component{
                         </div>
                         <button type="submit" className="btn btn-primary">Add</button>
                     </form>
-                    <div className="edit-button" >
-                        <Button bsStyle="info" onClick={this.save}>Save</Button>
-                    </div>
                 </div>
             </div>
         );
