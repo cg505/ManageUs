@@ -1,50 +1,98 @@
 import React, { Component } from 'react';
 import './Components.css';
 import {Button} from 'react-bootstrap';
+import authFetch from '../utils/authFetch';
+
 class GroceryApps extends Component{
     constructor(){
         super();
         this.state= {
-            items: {
-
-            },
-
-
+            items: []
         };
         this.createItems = this.createItems.bind(this);
         this.save = this.save.bind(this);
+        this.getItems = this.getItems.bind(this);
     }
 
+    componentDidMount() {
+        this.getItems();
+    }
 
-    addItem(item){
-        var time = (new Date()).getTime();
-        this.state.items['item-' + time] = item;
-        this.setState({items: this.state.items});
+    async getItems() {
+        const resp = await authFetch('/api/households/groceries');
+        if(resp.ok) {
+            const items = await resp.json();
+            this.setState({items});
+        }
+    }
+
+    async addItem(item){
+        const time = (new Date()).getTime();
+        const tempItem = {name: item, id: time, checked: false};
+        this.setState((state) => ({
+            items: [
+                ...state.items,
+                tempItem
+            ]
+        }));
+
+        const resp = await authFetch('/api/households/groceries', {
+            name: item
+        });
+
+        if(resp.ok) {
+            const newItem = await resp.json();
+            this.setState((state) => {
+                const i = state.items.indexOf(item);
+                state[i] = newItem;
+                return state;
+            });
+        }
     }
 
     createItems(e){
         e.preventDefault();
-        var item = this.refs.itemName.value;
+        const item = this.refs.itemName.value;
         if(typeof item === 'string' && item.length > 0) {
             this.addItem(item);
             this.refs.itemForm.reset();
         }
     }
 
-    async save() {
+    save() {
         console.log(this.state.items);
+    }
+
+    toggleChecked(id, ix) {
+        return ((e) => {
+            e.preventDefault();
+            const item = Object.assign({},  this.state.items[ix]);
+            item.checked = !item.checked;
+            const items = this.state.items;
+            items[ix] = item;
+            this.setState({items});
+            authFetch(`/api/households/groceries/${id}`, {
+                checked: item.checked
+            });
+        }).bind(this);
     }
 
     render() {
         return(
                 <div>
+                    <table className="table table-hover">
+                        <tr>
+                            <th>Item</th>
+                        </tr>
                     {
-                        Object.keys(this.state.items).map(function(key){
-                            return <tr><th>
-                                {this.state.items[key]}
-                            </th></tr>
-                        }.bind(this))
+                        this.state.items.map((item, ix) => (<tr><th onClick={this.toggleChecked(item.id, ix)}>
+                            {item.checked ?
+                             (<s> {item.name} </s>) :
+                             item.name
+                            }
+                            </th></tr>))
                     }
+                </table>
                 <div className="component-wrapper">
                 <form className="form-inline" ref="itemForm" onSubmit={this.createItems}>
                     <div className="form-group">

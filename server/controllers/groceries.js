@@ -111,10 +111,10 @@ module.exports = {
             })
         }
 
-        if(req.body.name) {
+        if(typeof req.body.name !== 'undefined') {
             groceryItem.name = req.body.name;
         }
-        if(req.body.checked) {
+        if(typeof req.body.checked !== 'undefined') {
             groceryItem.checked = req.body.checked;
         }
 

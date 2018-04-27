@@ -64,12 +64,7 @@ class GroceryPanel extends Component {
             <div>
                 <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
                     <h1><img src={GroceryImage} alt="GroceryImage" /> Groceries</h1>
-                    <table className="table table-hover">
-                        <tr>
-                            <th>Item</th>
-                        </tr>
-                        <GroceryApps/>
-                    </table>
+                    <GroceryApps/>
                 </Modal>
 
                 <div className="flex-item" id="Grocery" onClick={this.openModal}>
