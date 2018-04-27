@@ -131,7 +131,7 @@ class RulesPanel extends Component {
                     </div>
                     <span className="label label-info">Last Editied: {lastEdit}</span>
                     <h5 className="mb-1">Rules List</h5>
-                    <p className="mb-1">add some thing here</p>
+                    <p className="mb-1">Last edited</p>
                     <small>by {lastEditName}</small>
                 </div>
             </div>

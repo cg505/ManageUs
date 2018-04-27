@@ -9,6 +9,7 @@ class GroceryApps extends Component{
         this.state= {
             items: []
         };
+
         this.createItems = this.createItems.bind(this);
         this.save = this.save.bind(this);
         this.getItems = this.getItems.bind(this);
@@ -94,25 +95,20 @@ class GroceryApps extends Component{
                     }
                 </table>
                 <div className="component-wrapper">
-                <form className="form-inline" ref="itemForm" onSubmit={this.createItems}>
-                    <div className="form-group">
-                        <label htmlFor="Item">
-                            Item Name
-                            <input type="text" id="Item" placeholder="add item name" ref="itemName"
-                                   className="form-control"/>
-                        </label>
-                    </div>
-                    <button type="submit" className="btn btn-primary">Add</button>
-                </form>
-                <div className="edit-button" >
-                    <Button bsStyle="info" onClick={this.save}>Save</Button>
+                    <form className="form-inline" ref="itemForm" onSubmit={this.createItems}>
+                        <div className="form-group">
+                            <label htmlFor="Item">
+                                Item Name
+                                <input type="text" id="Item" placeholder="add item name" ref="itemName"
+                                       className="form-control"/>
+                            </label>
+                        </div>
+                        <button type="submit" className="btn btn-primary">Add</button>
+                    </form>
                 </div>
-            </div>
             </div>
         );
     }
-
 }
-
 
 export default GroceryApps;
