@@ -17,6 +17,7 @@ class Profile extends Component {
         this.fetchHousehold = this.fetchHousehold.bind(this);
         this.fetchHouseholdKey = this.fetchHouseholdKey.bind(this);
         this.generateKey = this.generateKey.bind(this);
+        this.leave = this.leave.bind(this);
     }
 
     componentDidMount() {
@@ -49,6 +50,13 @@ class Profile extends Component {
             this.setState({
                 householdKey: await resp.json()
             });
+        }
+    }
+
+    async leave() {
+        const resp = await authFetch('/api/households/leave', {});
+        if(resp.ok) {
+
         }
     }
 
@@ -100,6 +108,7 @@ class Profile extends Component {
                             <input className="form-control mx-sm-3" id="disabledInput" type="text"
                                    value={key}/>
                             <Button onClick={this.generateKey}>Generate Key</Button>
+                            <Button onClick={this.leave}>Leave</Button>
                         </div>
                     </form>
                 </header>
