@@ -1,30 +1,54 @@
 import React, { Component } from 'react';
 import './Components.css';
-import authFetch from "../utils/authFetch";
+import {Button} from 'react-bootstrap';
+import authFetch from '../utils/authFetch';
 
 class GroceryApps extends Component{
     constructor(){
         super();
         this.state= {
-            items: ["Milk", ],
-            grocery: [],
+            items: []
         };
 
         this.createItems = this.createItems.bind(this);
-        this.addItem = this.addItem.bind(this);
-        this.fetchItem = this.fetchItem.bind(this);
+        this.save = this.save.bind(this);
+        this.getItems = this.getItems.bind(this);
     }
 
     componentDidMount() {
-        this.fetchItem();
+        this.getItems();
+    }
+
+    async getItems() {
+        const resp = await authFetch('/api/households/groceries');
+        if(resp.ok) {
+            const items = await resp.json();
+            this.setState({items});
+        }
     }
 
     async addItem(item){
+        const time = (new Date()).getTime();
+        const tempItem = {name: item, id: time, checked: false};
+        this.setState((state) => ({
+            items: [
+                ...state.items,
+                tempItem
+            ]
+        }));
 
-        this.setState({items: [...this.state.items, item]});
-        await authFetch('/api/households/groceries', {
-            name: item});
-        //console.log(item);
+        const resp = await authFetch('/api/households/groceries', {
+            name: item
+        });
+
+        if(resp.ok) {
+            const newItem = await resp.json();
+            this.setState((state) => {
+                const i = state.items.indexOf(item);
+                state[i] = newItem;
+                return state;
+            });
+        }
     }
 
     createItems(e){
@@ -36,37 +60,39 @@ class GroceryApps extends Component{
         }
     }
 
-    async fetchItem() {
-        const resp = await authFetch('/api/households/groceries');
-        if (resp.ok) {
-            this.setState({
-                grocery: await resp.json()
-            });
-            console.log(this.state.grocery);
-            }
+    save() {
+        console.log(this.state.items);
+    }
 
+    toggleChecked(id, ix) {
+        return ((e) => {
+            e.preventDefault();
+            const item = Object.assign({},  this.state.items[ix]);
+            item.checked = !item.checked;
+            const items = this.state.items;
+            items[ix] = item;
+            this.setState({items});
+            authFetch(`/api/households/groceries/${id}`, {
+                checked: item.checked
+            });
+        }).bind(this);
     }
 
     render() {
         return(
-            <div>
-                <table className="table table-hover">
+                <div>
+                    <table className="table table-hover">
                         <tr>
                             <th>Item</th>
                         </tr>
-                {
-                    this.state.grocery.map(function(key){
-                        if(key.name){
-                            return <tr><td>
-                                {key.name}
-                            </td></tr>
-                        }
-                        return <tr><td>
-                            nothing here
-                        </td></tr>;
-                    })
-
-                }
+                    {
+                        this.state.items.map((item, ix) => (<tr><th onClick={this.toggleChecked(item.id, ix)}>
+                            {item.checked ?
+                             (<s> {item.name} </s>) :
+                             item.name
+                            }
+                            </th></tr>))
+                    }
                 </table>
                 <div className="component-wrapper">
                     <form className="form-inline" ref="itemForm" onSubmit={this.createItems}>

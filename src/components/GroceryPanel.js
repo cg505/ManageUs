@@ -81,8 +81,8 @@ class GroceryPanel extends Component {
         return (
             <div>
                 <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
-                    <h1><img src={GroceryImage} alt="GroceryImage" /> Groceries</h1>     
-                        <GroceryApps/>
+                    <h1><img src={GroceryImage} alt="GroceryImage" /> Groceries</h1>
+                    <GroceryApps/>
                 </Modal>
 
                 <div className="flex-item" id="Grocery" onClick={this.openModal}>
