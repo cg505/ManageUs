@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
             models.JoinKey,
             models.Note,
             models.GroceryItem,
-            models.Poll
+            models.Poll,
+            models.ChoreItem
         ];
 
         hasManyModels.forEach((model) =>
