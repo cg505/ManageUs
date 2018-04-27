@@ -17,7 +17,7 @@ class PollApps extends Component {
         this.chooseD = this.chooseD.bind(this);
     }
 
-    createPolls(e){
+    async createPolls(e){
         e.preventDefault();
         const ques = this.refs.quesName.value;
         const choiceA = this.refs.choiceAName.value;
@@ -26,10 +26,13 @@ class PollApps extends Component {
         const choiceD = this.refs.choiceDName.value;
         //console.log(ques + choiceA + choiceB + choiceC + choiceD);
         if(typeof ques === 'string' && ques.length > 0) {
-            this.addQues(ques, choiceA, choiceB, choiceC, choiceD);
+            const resp = this.addQues(ques, choiceA, choiceB, choiceC, choiceD);
             this.refs.quesForm.reset();
             this.refs.quesForm.reset();
+            await resp;
+            this.getQues();
         }
+
     }
 
     componentDidMount() {
@@ -66,25 +69,25 @@ class PollApps extends Component {
     chooseA(id) {
         return () => (authFetch('/api/households/polls/' + id + '/vote', {
             choice: "A"
-        }));
+        }).then(this.getQues));
     }
 
     chooseB(id) {
         return () => (authFetch('/api/households/polls/' + id + '/vote', {
             choice: "B"
-        }));
+        }).then(this.getQues));
     }
 
     chooseC(id) {
         return () => (authFetch('/api/households/polls/' + id + '/vote', {
             choice: "C"
-        }));
+        }).then(this.getQues));
     }
 
     chooseD(id) {
         return () => (authFetch('/api/households/polls/' + id + '/vote', {
             choice: "D"
-        }));
+        }).then(this.getQues));
     }
 
 
