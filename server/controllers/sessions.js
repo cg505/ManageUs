@@ -16,7 +16,9 @@ module.exports = {
 
         if(await bcrypt.compare(req.body.password, user.passwordHash)) {
             req.session.userId = user.id;
-            return res.status(200).send(user);
+            return res.status(200).send({
+                id: user.id
+            });
         }
 
         return res.status(401).send({
