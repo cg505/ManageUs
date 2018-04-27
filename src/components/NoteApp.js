@@ -56,6 +56,11 @@ class NoteApp extends Component {
     render() {
         return(
             <div>
+            <table className="table table-hover">
+                <tr>
+                    <th>Author</th>
+                    <th>Message</th>
+                </tr>
                 {
                     this.state.notes.map(function(key){
                         console.log(key)
@@ -65,6 +70,7 @@ class NoteApp extends Component {
                         </tr>
                     })
                 }
+                </table>
                 <div className="component-wrapper">
                     <form className="form-inline" ref="noteForm" onSubmit={this.createNotes}>
                         <div className="form-group">

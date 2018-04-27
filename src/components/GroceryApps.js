@@ -50,6 +50,10 @@ class GroceryApps extends Component{
     render() {
         return(
             <div>
+                <table className="table table-hover">
+                        <tr>
+                            <th>Item</th>
+                        </tr>
                 {
                     this.state.grocery.map(function(key){
                         if(key.name){
@@ -63,6 +67,7 @@ class GroceryApps extends Component{
                     })
 
                 }
+                </table>
                 <div className="component-wrapper">
                     <form className="form-inline" ref="itemForm" onSubmit={this.createItems}>
                         <div className="form-group">
