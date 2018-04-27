@@ -38,6 +38,7 @@ module.exports = (app) => {
 
     app.get('/households/chores', Controllers.chores.index);
     app.post('/households/chores', Controllers.chores.create);
+    app.post('/households/chores/:choreId', Controllers.chores.update);
 
     // fallthrough
     app.get('/*', (req, res) =>
