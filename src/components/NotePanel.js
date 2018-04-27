@@ -80,10 +80,10 @@ class NotePanel extends Component {
             <div className="flex-item" id="Note" onClick={this.openModal}>
             <div className = "flex-item-header">
             <img src={NoteImage} alt="NoteImage"/>
-            <h4>Note</h4>
+            <h4>Notes</h4>
             </div>
             <span className="label label-success">{this.state.notes.length} Notes</span>
-            <h5 className="mb-1">Timed Sticky Notes</h5>
+            <h5 className="mb-1">Notes from household members</h5>
             </div>
             </div>
         );
