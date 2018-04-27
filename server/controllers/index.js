@@ -5,5 +5,6 @@ module.exports = {
     notes: require('./notes'),
     rules: require('./rules'),
     groceries: require('./groceries'),
-    polls: require('./polls')
+    polls: require('./polls'),
+    chores: require('./chores')
 };

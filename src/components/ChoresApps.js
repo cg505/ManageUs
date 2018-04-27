@@ -8,7 +8,7 @@ class ChoresApps extends Component{
         super();
         this.state= {
             items: [],
-            users: [],
+            houseHoldInfo: {}
         };
 
         this.createItems = this.createItems.bind(this);
@@ -27,13 +27,6 @@ class ChoresApps extends Component{
             this.setState({
                 houseHoldInfo: await resp.json()
             });
-
-            if(this.state.houseHoldInfo) {
-                let temp = this.state.houseHoldInfo.Users;
-                this.setState({
-                    users: temp
-                });
-            }
         }
     }
 
@@ -45,10 +38,9 @@ class ChoresApps extends Component{
         }
     }
 
-    async addItem(item){
+    async addItem(item, assign){
         const time = (new Date()).getTime();
-        const assign = this.refs.assignName;
-        const tempItem = {name: item, id: time, checked: false};
+        const tempItem = {name: item, id: time, checked: false, assign: {firstName: 'sending', lastName: ''}};
         this.setState((state) => ({
             items: [
                 ...state.items,
@@ -64,8 +56,9 @@ class ChoresApps extends Component{
         if(resp.ok) {
             const newItem = await resp.json();
             this.setState((state) => {
-                const i = state.items.indexOf(item);
-                state[i] = newItem;
+                console.log(state);
+                const i = state.items.indexOf(tempItem);
+                state.items[i] = newItem;
                 return state;
             });
         }
@@ -74,9 +67,9 @@ class ChoresApps extends Component{
     createItems(e){
         e.preventDefault();
         const item = this.refs.itemName.value;
-        const assign = this.refs.assignName;
+        const assign = this.refs.assignName.value;
         if(typeof item === 'string' && item.length > 0) {
-            this.addItem(item);
+            this.addItem(item, assign);
             this.refs.itemForm.reset();
         }
     }
@@ -96,7 +89,7 @@ class ChoresApps extends Component{
             authFetch(`/api/households/chores/${id}`, {
                 checked: item.checked
             });
-        }).bind(this);
+        });
     }
 
     render() {
@@ -124,13 +117,14 @@ class ChoresApps extends Component{
                                 <input type="text" id="Item" placeholder="Ex: Milk" ref="itemName"
                                        className="form-control"/>
                             </label>
-                             <select>
+                             <select  ref="assignName">
                                   {
-                                    this.state.users.map(function(key) {
-                                        return <option ref="assignName" value={key.email}>{key.firstName} {key.lastName}</option>
+                                      this.state.houseHoldInfo.Users &&
+                                    this.state.houseHoldInfo.Users.map(function(key) {
+                                        return <option value={key.email}>{key.firstName} {key.lastName}</option>
                                     })
                                   }
-                            </select> 
+                            </select>
                         </div>
                         <button type="submit" className="btn btn-primary">Add</button>
                     </form>
