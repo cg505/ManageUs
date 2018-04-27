@@ -84,8 +84,6 @@ class NotePanel extends Component {
             </div>
             <span className="label label-success">{this.state.notes.length} Notes</span>
             <h5 className="mb-1">Timed Sticky Notes</h5>
-            <p className="mb-1">add some thing here</p>
-            <small>by XXX</small>
             </div>
             </div>
         );
