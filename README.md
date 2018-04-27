@@ -6,7 +6,7 @@ Brief Description: People in a household are able to leaves notes for each other
 ### Features Include:
 - Collaborated Grocery List
 - Chores List
-- Timed Sticky Notes
+- Leave Notes for Each Other
 - Rules List
 - Polls
 
