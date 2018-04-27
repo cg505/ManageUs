@@ -3,7 +3,7 @@ import './Components.css';
 import Modal from 'react-modal';
 import GroceryImage from '../img/groceries.png';
 
-import Apps from './Apps'
+import GroceryApps from './GroceryApps'
 
 const customStyles = {
     content : {
@@ -70,7 +70,7 @@ class GroceryPanel extends Component {
                             <th>Item</th>
                         </tr>
                         <div>
-                            <Apps/>
+                            <GroceryApps/>
                         </div>
 
                     </table>

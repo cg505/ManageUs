@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Components.css';
 import {Button} from 'react-bootstrap';
-class Apps extends Component{
+class GroceryApps extends Component{
     constructor(){
         super();
         this.state= {
@@ -12,6 +12,7 @@ class Apps extends Component{
 
         };
         this.createItems = this.createItems.bind(this);
+        this.save = this.save.bind(this);
     }
 
 
@@ -28,6 +29,10 @@ class Apps extends Component{
             this.addItem(item);
             this.refs.itemForm.reset();
         }
+    }
+
+    async save() {
+        console.log(this.state.items);
     }
 
     render() {
@@ -55,7 +60,7 @@ class Apps extends Component{
                     <button type="submit" className="btn btn-primary">Add</button>
                 </form>
                 <div className="edit-button" >
-                    <Button bsStyle="info">Save</Button>
+                    <Button bsStyle="info" onClick={this.save}>Save</Button>
                 </div>
             </div>
         );
@@ -64,4 +69,4 @@ class Apps extends Component{
 }
 
 
-export default Apps;
+export default GroceryApps;
