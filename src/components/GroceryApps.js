@@ -86,12 +86,12 @@ class GroceryApps extends Component{
                             <th>Item</th>
                         </tr>
                     {
-                        this.state.items.map((item, ix) => (<tr><th onClick={this.toggleChecked(item.id, ix)}>
+                        this.state.items.map((item, ix) => (<tr><td onClick={this.toggleChecked(item.id, ix)}>
                             {item.checked ?
                              (<s> {item.name} </s>) :
                              item.name
                             }
-                            </th></tr>))
+                            </td></tr>))
                     }
                 </table>
                 <div className="component-wrapper">
