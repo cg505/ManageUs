@@ -86,12 +86,7 @@ class NamesPanel extends Component {
             <div>
                 <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
                     <h1><img src={HouseImage} alt="HouseImage" /> {houseName}</h1>
-                    <table className="table table-hover">
-                        <tr>
-                            <th>Name</th>
-                        </tr>
                         <NameApps/>
-                    </table>
                 </Modal>
                 <div className="flex-item" id="Chores" onClick={this.openModal}>
                     <div className="flex-item-header">

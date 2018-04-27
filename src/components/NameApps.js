@@ -36,6 +36,10 @@ class NameApps extends Component {
     render() {
         return(
             <div>
+            <table className="table table-hover">
+                        <tr>
+                            <th>Name</th>
+                        </tr>
                 {
                     this.state.items.map(function(key){
                         return <tr>
@@ -45,6 +49,7 @@ class NameApps extends Component {
                         </tr>
                     })
                 }
+                </table>
             </div>
         )
     }
