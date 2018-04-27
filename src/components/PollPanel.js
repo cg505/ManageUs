@@ -3,6 +3,7 @@ import './Components.css';
 import Modal from 'react-modal';
 import PollImage from '../img/poll.png';
 import PollApps from './PollApps';
+import authFetch from "../utils/authFetch";
 
 const customStyles = {
     content : {
@@ -26,12 +27,14 @@ class PollPanel extends Component {
         super();
 
         this.state = {
-            modalIsOpen: false
+            modalIsOpen: false,
+            Polls: []
         };
 
         this.openModal = this.openModal.bind(this);
         this.afterOpenModal = this.afterOpenModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.getQues = this.getQues.bind(this);
     }
 
     openModal() {
@@ -46,7 +49,24 @@ class PollPanel extends Component {
     closeModal() {
         this.setState({modalIsOpen: false});
     }
+
+    componentDidMount() {
+        this.getQues();
+    }
+
+    async getQues() {
+        const resp = await authFetch('/api/households/polls');
+        if(resp.ok) {
+            const ques = await resp.json();
+            this.setState({
+                Polls: ques,
+            });
+            console.log(this.state.Polls);
+        }
+    }
+
     render() {
+        let lastEditor = '';
         return (
             <div>
                 <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
@@ -57,15 +77,21 @@ class PollPanel extends Component {
                             </div>
                     </table>
                 </Modal>
-                <div className="flex-item" id="Polls" onClick={this.openModal}>
+                <div className="flex-item" id="Polls" onClick={this.openModal}>{
+                    this.state.Polls.map((key) => {
+
+                        return lastEditor = key.creator.firstName;
+                    })
+
+                }
                     <div className = "flex-item-header">
                         <img src={PollImage} alt="PollImage" />
                         <h4>Poll</h4>
                     </div>
-                    <span className="label label-warning">2 Current Polls</span>
+                    <span className="label label-warning">{this.state.Polls.length} Current Polls</span>
                     <h5 className="mb-1">Polls</h5>
-                    <p className="mb-1">add some thing here</p>
-                    <small>by XXX</small>
+                    <p className="mb-1">Last Edited</p>
+                    <small>by {lastEditor}</small>
                 </div>
             </div>
         );
