@@ -52,17 +52,9 @@ class PollPanel extends Component {
                 <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
                     <h1><img src={PollImage} alt="PollImage" /> Polls</h1>
                     <table className="table table-hover">
-                        <tr>
-                            <th>Author</th>
-                            <th>Description</th>
-                            <th>Option 1</th>
-                            <th>Option 2</th>
-                            <th>Option 3</th>
-                            <th>Option 4</th>
-                        </tr>
-                        <div>
-                            <PollApps />
-                        </div>
+                            <div>
+                                <PollApps />
+                            </div>
                     </table>
                 </Modal>
                 <div className="flex-item" id="Polls" onClick={this.openModal}>
