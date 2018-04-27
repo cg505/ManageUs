@@ -72,8 +72,8 @@ class GroceryApps extends Component{
                     <form className="form-inline" ref="itemForm" onSubmit={this.createItems}>
                         <div className="form-group">
                             <label htmlFor="Item">
-                                Item Name
-                                <input type="text" id="Item" placeholder="add item name" ref="itemName"
+                                New Item:
+                                <input type="text" id="Item" placeholder="Ex: Milk" ref="itemName"
                                        className="form-control"/>
                             </label>
                         </div>

@@ -54,6 +54,7 @@ class GroceryPanel extends Component {
 
     closeModal() {
         this.setState({modalIsOpen: false});
+        this.fetchItem();
     }
 
     componentDidMount() {
