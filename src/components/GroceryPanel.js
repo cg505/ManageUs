@@ -60,7 +60,6 @@ class GroceryPanel extends Component {
 //TODO: Create Function to add Item to GroceryList
 
     render() {
-
         return (
             <div>
                 <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
@@ -69,13 +68,9 @@ class GroceryPanel extends Component {
                         <tr>
                             <th>Item</th>
                         </tr>
-                        <div>
-                            <GroceryApps/>
-                        </div>
-
+                        <GroceryApps/>
                     </table>
                 </Modal>
-
 
                 <div className="flex-item" id="Grocery" onClick={this.openModal}>
                     <div className = "flex-item-header">

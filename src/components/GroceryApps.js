@@ -37,18 +37,15 @@ class GroceryApps extends Component{
 
     render() {
         return(
-            <div className="component-wrapper">
-                <div className="table table-hover">
-                    <ul className="list-group text-center">
-                        {
-                            Object.keys(this.state.items).map(function(key){
-                                return <li className="list-group-item list-group-item-info">
-                                    {this.state.items[key]}
-                                </li>
-                            }.bind(this))
-                        }
-                    </ul>
-                </div>
+                <div>
+                    {
+                        Object.keys(this.state.items).map(function(key){
+                            return <tr><th>
+                                {this.state.items[key]}
+                            </th></tr>
+                        }.bind(this))
+                    }
+                <div className="component-wrapper">
                 <form className="form-inline" ref="itemForm" onSubmit={this.createItems}>
                     <div className="form-group">
                         <label htmlFor="Item">
@@ -62,6 +59,7 @@ class GroceryApps extends Component{
                 <div className="edit-button" >
                     <Button bsStyle="info" onClick={this.save}>Save</Button>
                 </div>
+            </div>
             </div>
         );
     }
