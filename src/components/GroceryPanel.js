@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './Components.css';
 import Modal from 'react-modal';
 import GroceryImage from '../img/groceries.png';
-import {Button} from 'react-bootstrap';
+
+import Apps from './Apps'
 
 const customStyles = {
     content : {
@@ -19,7 +20,9 @@ const customStyles = {
 };
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#root')
+Modal.setAppElement('#root');
+
+
 
 class GroceryPanel extends Component {
 
@@ -28,15 +31,13 @@ class GroceryPanel extends Component {
 
         this.state = {
             modalIsOpen: false,
-            addIsOpen: false,
-            text: 'add neme here',
+
+
         };
 
         this.openModal = this.openModal.bind(this);
         this.afterOpenModal = this.afterOpenModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
-        this.openAdd = this.openAdd.bind(this);
-        this.closeAdd = this.closeAdd.bind(this);
     }
 
     openModal() {
@@ -52,13 +53,7 @@ class GroceryPanel extends Component {
         this.setState({modalIsOpen: false});
     }
 
-    openAdd() {
-        this.setState({addIsOpen: true});
-    }
 
-    closeAdd() {
-        this.setState({addIsOpen: false});
-    }
 
 
 //TODO: Create Function to populate table of Groceries.
@@ -74,26 +69,13 @@ class GroceryPanel extends Component {
                         <tr>
                             <th>Item</th>
                         </tr>
-                        <tr>
-                            <td>Milk</td>
-                        </tr>
-                        <tr>
-                            <td>Eggs</td>
-                        </tr>
+                        <div>
+                            <Apps/>
+                        </div>
+
                     </table>
-
-                    <div className="edit-button" onClick={this.openAdd}>
-                        <Button bsStyle="info">Add</Button>
-                    </div>
                 </Modal>
 
-
-                <Modal isOpen={this.state.addIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeAdd} style={customStyles} contentLabel="edit Modal">
-                    <textarea value={this.state.text} onChange={e => this.setState({text: e.target.value})}/>
-                    <div className="edit-button" /*onClick={this.Save}*/>
-                        <Button bsStyle="info" onClick={this.closeAdd}>Save</Button>
-                    </div>
-                </Modal>
 
                 <div className="flex-item" id="Grocery" onClick={this.openModal}>
                     <div className = "flex-item-header">
@@ -107,6 +89,11 @@ class GroceryPanel extends Component {
                 </div>
             </div>
         );
+
     }
+
+
 }
+
+
 export default GroceryPanel;
