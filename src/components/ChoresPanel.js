@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Components.css';
 import Modal from 'react-modal';
 import ChoresImage from '../img/chores.png'
+import ChoresApps from './ChoresApps'
 
 const customStyles = {
   content : {
@@ -55,18 +56,7 @@ render() {
       <div>
       <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal">
         <h1><img src={ChoresImage} alt="ChoresImage" /> Chores</h1>
-        <table className="table table-hover">
-        <tr>
-            <th>Chore</th>
-            <th>Assigned to</th>
-            <th>Done?</th>
-        </tr>
-        <tr>
-            <td>Wash Dishs</td>
-            <td>Devin Sova</td>
-            <td><input type="checkbox" name="chore1" value="chore1" /></td>
-        </tr>
-        </table>
+        <ChoresApps />
       </Modal>
 
       <div className="flex-item" id="Chores" onClick={this.openModal}>
