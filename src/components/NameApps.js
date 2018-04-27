@@ -39,9 +39,9 @@ class NameApps extends Component {
                 {
                     this.state.items.map(function(key){
                         return <tr>
-                            <th>
+                            <td>
                                 {key.firstName} {key.lastName}
-                            </th>
+                            </td>
                         </tr>
                     })
                 }

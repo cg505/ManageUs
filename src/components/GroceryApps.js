@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './Components.css';
 import authFetch from "../utils/authFetch";
+
 class GroceryApps extends Component{
     constructor(){
         super();
         this.state= {
             items: ["Milk", ],
             grocery: [],
-
-
         };
+
         this.createItems = this.createItems.bind(this);
         this.addItem = this.addItem.bind(this);
         this.fetchItem = this.fetchItem.bind(this);
@@ -53,13 +53,13 @@ class GroceryApps extends Component{
                 {
                     this.state.grocery.map(function(key){
                         if(key.name){
-                            return <tr><th>
+                            return <tr><td>
                                 {key.name}
-                            </th></tr>
+                            </td></tr>
                         }
-                        return <tr><th>
+                        return <tr><td>
                             nothing here
-                        </th></tr>;
+                        </td></tr>;
                     })
 
                 }
@@ -78,8 +78,6 @@ class GroceryApps extends Component{
             </div>
         );
     }
-
 }
-
 
 export default GroceryApps;
