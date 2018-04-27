@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Components.css';
-import {Button} from 'react-bootstrap';
 import authFetch from '../utils/authFetch';
 
 class GroceryApps extends Component{
