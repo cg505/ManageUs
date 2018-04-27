@@ -21,6 +21,25 @@ module.exports = (app) => {
     app.post('/households/join', Controllers.households.join);
     app.post('/households/leave', Controllers.households.leave);
 
+    app.get('/households/notes', Controllers.notes.index);
+    app.post('/households/notes', Controllers.notes.create);
+    app.post('/households/notes/:noteId', Controllers.notes.update);
+
+    app.get('/households/rules', Controllers.rules.get);
+    app.post('/households/rules', Controllers.rules.update);
+
+    app.get('/households/groceries', Controllers.groceries.index);
+    app.post('/households/groceries', Controllers.groceries.create);
+    app.post('/households/groceries/:groceryId', Controllers.groceries.update);
+
+    app.get('/households/polls', Controllers.polls.index);
+    app.post('/households/polls', Controllers.polls.create);
+    app.post('/households/polls/:pollId/vote', Controllers.polls.vote);
+
+    app.get('/households/chores', Controllers.chores.index);
+    app.post('/households/chores', Controllers.chores.create);
+    app.post('/households/chores/:choreId', Controllers.chores.update);
+
     // fallthrough
     app.get('/*', (req, res) =>
         res.status(404).send({

@@ -170,3 +170,206 @@ Leaves household
 - Must be authenticated
 
 No request body, returns 204 No Content on success.
+
+
+## Notes controller
+
+### GET /households/notes
+
+Gets all notes in the user's household
+
+- Must be authenticated
+
+Response:
+```json
+[
+    {
+        "id": integer,
+        "text": string,
+        "creator": {
+            "id": integer,
+            "firstName": string,
+            "lastName": string
+        }
+    }
+]
+```
+
+
+### POST /households/notes
+
+Create a new note
+
+- Must be authenticated
+
+Request:
+```json
+{
+    "text": string
+}
+```
+
+Response:
+```json
+{
+    "id": integer,
+    "text": string,
+    "creatorId": integer,
+    "householdId": integer,
+    "updatedAt": datetime,
+    "createdAt": datetime
+}
+```
+
+### POST /households/notes/:noteId
+
+Updates note with id :noteId
+
+- Must be authenticated
+
+Request:
+```json
+{
+    "text": string
+}
+```
+
+Response:
+```json
+{
+    "id": integer,
+    "text": string,
+    "creatorId": integer,
+    "householdId": integer,
+    "updatedAt": datetime,
+    "createdAt": datetime
+}
+```
+
+
+## Rules controller
+
+### GET /households/rules
+
+- Must be authenticated
+
+Response:
+`null` if no rules have been created yet, otherwise
+```json
+{
+    "id": integer
+    "text": string
+    "lastEditor": {
+        "id": integer
+        "firstName": string
+        "lastName": string
+    },
+    "createdAt": datetime,
+    "updatedAt": datetime
+}
+```
+
+### POST /households/rules
+
+Create or update rules
+
+- Must be authenticated
+
+Request:
+```json
+{
+    "text": string
+}
+```
+
+Response:
+```json
+{
+    "id": integer
+    "text": string
+    "lastEditor": {
+        "id": integer
+        "firstName": string
+        "lastName": string
+    },
+    "createdAt": datetime,
+    "updatedAt": datetime
+}
+```
+
+### GET /households/groceries
+
+Gets all grocery list items in the user's household
+
+- Must be authenticated
+
+Response:
+```json
+[
+    {
+        "id": integer,
+        "name": string,
+        "checked": boolean,
+        "creator": {
+            "id": integer,
+            "firstName": string,
+            "lastName": string
+        }
+        "createdAt": datetime,
+        "updatedAt": datetime
+    }
+]
+```
+
+
+### POST /households/groceries
+
+Create a new grocery list item
+
+- Must be authenticated
+
+Request:
+```json
+{
+    "name": string
+}
+```
+
+Response:
+```json
+{
+    "id": integer,
+    "name": string,
+    "creatorId": integer,
+    "householdId": integer,
+    "updatedAt": datetime,
+    "createdAt": datetime
+}
+```
+
+### POST /households/groceries/:groceryId
+
+Updates the grocery list item with id :groceryId.
+Both request fields are optional.
+
+- Must be authenticated
+
+Request:
+```json
+{
+    "name": string,
+    "checked": boolean
+}
+```
+
+Response:
+```json
+{
+    "id": integer,
+    "name": string,
+    "creatorId": integer,
+    "householdId": integer,
+    "updatedAt": datetime,
+    "createdAt": datetime
+}
+```
