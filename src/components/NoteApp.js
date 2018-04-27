@@ -75,8 +75,8 @@ class NoteApp extends Component {
                     <form className="form-inline" ref="noteForm" onSubmit={this.createNotes}>
                         <div className="form-group">
                             <label htmlFor="Note">
-                                Note Text
-                                <input type="text" id="Item" placeholder="add note" ref="noteName"
+                                New Note:
+                                <input type="text" id="Item" placeholder="Ex: We are out of milk" ref="noteName"
                                        className="form-control"/>
                             </label>
                         </div>

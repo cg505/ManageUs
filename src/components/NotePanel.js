@@ -27,7 +27,8 @@ class NotePanel extends Component {
     super();
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      notes: [],
   };
 
   this.openModal = this.openModal.bind(this);
@@ -46,6 +47,7 @@ class NotePanel extends Component {
 
     closeModal() {
         this.setState({modalIsOpen: false});
+        this.fetchNote();
     }
 
     componentDidMount() {
@@ -80,7 +82,7 @@ class NotePanel extends Component {
             <img src={NoteImage} alt="NoteImage"/>
             <h4>Note</h4>
             </div>
-            <span className="label label-success">9 Notes</span>
+            <span className="label label-success">{this.state.notes.length} Notes</span>
             <h5 className="mb-1">Timed Sticky Notes</h5>
             <p className="mb-1">add some thing here</p>
             <small>by XXX</small>
