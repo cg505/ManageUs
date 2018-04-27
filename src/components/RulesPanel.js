@@ -46,6 +46,7 @@ class RulesPanel extends Component {
 
     openModal() {
         this.setState({modalIsOpen: true});
+        this.fetchRules();
     }
 
     afterOpenModal() {
@@ -55,6 +56,7 @@ class RulesPanel extends Component {
 
     closeModal() {
         this.setState({modalIsOpen: false});
+        this.fetchRules();
     }
 
     openEditRule() {
