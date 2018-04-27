@@ -4,5 +4,6 @@ module.exports = {
     households: require('./households'),
     notes: require('./notes'),
     rules: require('./rules'),
-    groceries: require('./groceries')
+    groceries: require('./groceries'),
+    polls: require('./polls')
 };

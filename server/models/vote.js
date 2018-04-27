@@ -4,14 +4,14 @@ module.exports = (sequelize, DataTypes) => {
         userId: DataTypes.INTEGER,
         choice: DataTypes.INTEGER
     }, {
-        scopes: ['A', 'B', 'C', 'D'].reduce((acc, choice, index) =>
-            Object.assign(acc, {
-                [choice]: {
-                    where: {
-                        choice: index
-                    }
-                }
-            }), {})
+        /*scopes: ['A', 'B', 'C', 'D'].reduce((acc, choice, index) =>
+         *    Object.assign(acc, {
+         *        [choice]: {
+         *            where: {
+         *                choice: index
+         *            }
+         *        }
+         *    }), {})*/
     });
 
     Vote.associate = (models) => {
