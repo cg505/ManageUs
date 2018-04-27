@@ -25,6 +25,7 @@ class NoteApp extends Component {
             text: note});
         console.log(note);
         console.log(this.state.notes);
+        this.fetchNote();
     }
 
     createNotes(e){
@@ -58,8 +59,8 @@ class NoteApp extends Component {
             <div>
             <table className="table table-hover">
                 <tr>
-                    <th>Author</th>
                     <th>Message</th>
+                    <th>Author</th>
                 </tr>
                 {
                     this.state.notes.map(function(key){
