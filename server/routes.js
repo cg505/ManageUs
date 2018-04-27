@@ -32,6 +32,10 @@ module.exports = (app) => {
     app.post('/households/groceries', Controllers.groceries.create);
     app.post('/households/groceries/:groceryId', Controllers.groceries.update);
 
+    app.get('/households/polls', Controllers.polls.index);
+    app.post('/households/polls', Controllers.polls.create);
+    app.post('/households/polls/:pollId/vote', Controllers.polls.vote);
+
     // fallthrough
     app.get('/*', (req, res) =>
         res.status(404).send({

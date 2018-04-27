@@ -11,20 +11,24 @@ module.exports = (sequelize, DataTypes) => {
     }, {});
 
     Poll.associate = (models) => {
+        Poll.belongsTo(models.User, {
+            as: 'creator',
+            foreignKey: 'creatorId'
+        });
         Poll.hasMany(models.Vote, {
             foreignKey: 'pollId'
         });
-        ['A', 'B', 'C', 'D'].forEach((choice) =>
-            Poll.belongsToMany(models.User, {
-                as: `${choice}votes`,
-                through: {
-                    model: models.Vote,
-                    scope: choice
-                },
-                foreignKey: 'pollId',
-                otherKey: 'userId',
-            })
-        );
+        /*['A', 'B', 'C', 'D'].forEach((choice) =>
+         *    Poll.belongsToMany(models.User, {
+         *        as: `${choice}votes`,
+         *        through: {
+         *            model: models.Vote,
+         *            scope: choice
+         *        },
+         *        foreignKey: 'pollId',
+         *        otherKey: 'userId',
+         *    })
+         *);*/
     };
 
     return Poll;
